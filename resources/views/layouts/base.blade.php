@@ -27,10 +27,10 @@
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                      <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/">HOME</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger active" href="/menu">MENU</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/featuredProduct">FEATURED PRODUCTS</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/deal">DEALS</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger {{ Request::is('/')? 'active': '' }}" href="/">HOME</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger {{ Request::is('/menu')? 'active': '' }}" href="/menu">MENU</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger {{ Request::is('/featuredProduct')? 'active': '' }}" href="/featuredProduct">FEATURED PRODUCTS</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger {{ Request::is('/deal')? 'active': '' }}" href="/deal">DEALS</a></li>
 						{{-- @if(Route::has('login'))
                             @auth
                                 @if(Auth::user()->utype === 'ADM')
@@ -88,13 +88,26 @@
                 <div class="mt-6 email-list">
                     <p class="text-muted mb-0">Join our email list</p>
                         <div class="content">
-                        <div class="input-group">
-                             <input type="email" class="form-control" placeholder="Enter your email">
-                             <span class="input-group-btn">
-                             <button class="btn sub" type="submit">Subscribe</button><!--<br class="unb">-->
-                             <button class="btn unsub" type="submit">Unsubscribe</button>
-                             </span>
-                              </div>
+                            @if (\Session::has('success'))
+                            <div class="alert alert-success">
+                              <p>{{ \Session::get('success') }}</p>
+                            </div><br />
+                           @endif
+                           @if (\Session::has('failure'))
+                            <div class="alert alert-danger">
+                              <p>{{ \Session::get('failure') }}</p>
+                            </div><br />
+                           @endif
+                        <form method="post" action="{{url('newsletter/store')}}">
+                            @csrf
+                            <div class="input-group">
+                                <input type="email"  name="email" class="form-control" placeholder="Enter your email">
+                                <span class="input-group-btn">
+                                <button class="btn sub" type="submit">Subscribe</button><!--<br class="unb">-->
+                                <button class="btn unsub" type="submit">Unsubscribe</button>
+                                </span>
+                            </div>
+                        </form>
                         </div>
                     <p class="text-muted mb-0">By clicking "SUBSCRIBE" I agree to receive news, promotions, information, and offers from CJ's.</p>
                     <p style="height:30px;"></p>

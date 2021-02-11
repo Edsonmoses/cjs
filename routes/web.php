@@ -58,6 +58,9 @@ Route::resource('category', CategoryController::class);
 
 Route::resource('subcategory', SubcategoryController::class);
 
+Route::get('newsletter','NewsletterController@index');
+Route::post('newsletter/store','NewsletterController@store');
+
 
 //Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     //return view('dashboard');
