@@ -1,0 +1,19 @@
+<IfModule mod_rewrite.c>
+RewriteBase /
+Options +FollowSymLinks
+RewriteEngine On
+
+# RewriteCond %{HTTP_HOST} !^cjs-beta.ovakast.com
+# RewriteCond %{REQUEST_URI} !^/public
+# RewriteRule ^(.*)$ public/$1 [L]
+
+# RewriteCond %{HTTP_HOST} ^cjs-beta.ovakast.com
+# RewriteCond %{REQUEST_URI} !^/public
+# RewriteRule ^(.*)$ public/ [L]
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^cjs-beta.ovakast.com$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^www.cjs-beta.ovakast.com$
+RewriteCond %{REQUEST_URI} !public/
+RewriteRule (.*) /public/$1 [L]
+</IfModule>
