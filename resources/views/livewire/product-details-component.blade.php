@@ -6,10 +6,11 @@
                       <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/">MENU</a></li>
                         <li class="breadcrumb-item"><a href="#">GENEROUS BIG MEALS</a></li>
-                        <li class="breadcrumb-item"><a href="#">BITS</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">SAMOSAS</li>
+                        <li class="breadcrumb-item"><a href="#">Bits</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{$product->name}}</li>
                       </ol>
                     </nav>
+
                 </div>
             </div>
         </div>
@@ -20,7 +21,7 @@
                         <img class="img-fluid" src="{{ asset('assets/img/products') }}/{{ $product->image }}" alt="" />
                     </a>
                 </div>
-                <div class="col-lg-6 col-sm-6 p-3 submenu-box">
+                <div class="col-lg-6 col-sm-6 p-3 submenu-box" style="margin-bottom: 150px !important;">
                    <h2 class="text-blue mt-0 text-uppercase">{{ $product->name }}</h2>
                    <p class="text-muted mb-4">{{ $product->description }}</p>
                    <h3 class="text-green-caption mt-0">{{ $product->regular_price }}</h3>

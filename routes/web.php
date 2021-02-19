@@ -19,6 +19,8 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Subcategory;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NewsletterController;
+use App\Http\Livewire\CareerComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,14 +54,16 @@ Route::get('/featuredProduct',FeaturedproductComponent::class);
 
 Route::get('/deal',DealComponent::class);
 
+Route::get('/career', CareerComponent::class);
+
 Route::resource('products', ProductController::class);
 
 Route::resource('category', CategoryController::class);
 
 Route::resource('subcategory', SubcategoryController::class);
 
-Route::get('newsletter','NewsletterController@index');
-Route::post('newsletter/store','NewsletterController@store');
+Route::get('newsletter',[NewsletterController::class, 'create']);
+Route::post('newsletter',[NewsletterController::class, 'store']);
 
 
 //Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

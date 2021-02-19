@@ -15,8 +15,8 @@
                 <div class="col-lg-12">
                    <nav aria-label="breadcrumb">
                        <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">MENU</a></li>
-                        <li class="breadcrumb-item"><a href="#">GENEROUS BIG MEALS</a></li>
+                        <li class="breadcrumb-item"><a href="/menu">MENU</a></li>
+                        <li class="breadcrumb-item"><a href="#"></a></li>
                         <li class="breadcrumb-item active" aria-current="page">{{$subcategory_name}}</li>
                       </ol>
                     </nav>

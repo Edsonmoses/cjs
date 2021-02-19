@@ -23,14 +23,14 @@
     <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container">
-                <a class="main-logo" href="menu.html"> <img class="img-fluid" src="{{ asset('assets/img/logo.png') }}" alt="" /></a>
+                <a class="main-logo" href="/"> <img class="img-fluid" src="{{ asset('assets/img/logo.png') }}" alt="" /></a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                      <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger {{ Request::is('/')? 'active': '' }}" href="/">HOME</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger {{ Request::is('/menu')? 'active': '' }}" href="/menu">MENU</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger {{ Request::is('/featuredProduct')? 'active': '' }}" href="/featuredProduct">FEATURED PRODUCTS</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger {{ Request::is('/deal')? 'active': '' }}" href="/deal">DEALS</a></li>
+                        <li class="nav-item"><a  href="/" class="nav-link js-scroll-trigger {{ request()->is('/') ? 'active' : '' }}">HOME</a></li>
+                        <li class="nav-item"><a  href="/menu" class="nav-link js-scroll-trigger {{ request()->is('menu') ? 'active' : '' }}">MENU</a></li>
+                        <li class="nav-item"><a  href="/featuredProduct" class="nav-link js-scroll-trigger {{ request()->is('featuredProduct') ? 'active' : '' }}">FEATURED PRODUCTS</a></li>
+                        <li class="nav-item"><a  href="/deal" class="nav-link js-scroll-trigger {{ request()->is('deal') ? 'active' : '' }}">DEALS</a></li>
 						{{-- @if(Route::has('login'))
                             @auth
                                 @if(Auth::user()->utype === 'ADM')
@@ -88,20 +88,20 @@
                 <div class="mt-6 email-list">
                     <p class="text-muted mb-0">Join our email list</p>
                         <div class="content">
-                            @if (\Session::has('success'))
-                            <div class="alert alert-success">
-                              <p>{{ \Session::get('success') }}</p>
-                            </div><br />
-                           @endif
-                           @if (\Session::has('failure'))
-                            <div class="alert alert-danger">
-                              <p>{{ \Session::get('failure') }}</p>
-                            </div><br />
-                           @endif
-                        <form method="post" action="{{url('newsletter/store')}}">
+                            @if ($message = Session::get('success'))
+                            <div class="alert alert-success alert-block">
+                                    <strong>{{ $message }}</strong>
+                            </div>
+                            @endif
+                            @if ($message = Session::get('error'))
+                            <div class="alert alert-danger alert-block">
+                                    <strong>{{ $message }}</strong>
+                            </div>
+                            @endif
+                        <form method="post" action="{{url('newsletter')}}">
                             @csrf
                             <div class="input-group">
-                                <input type="email"  name="email" class="form-control" placeholder="Enter your email">
+                                <input type="text"  name="email" class="form-control" placeholder="Enter your email">
                                 <span class="input-group-btn">
                                 <button class="btn sub" type="submit">Subscribe</button><!--<br class="unb">-->
                                 <button class="btn unsub" type="submit">Unsubscribe</button>
@@ -152,10 +152,10 @@
                 <div class="mt-5 menu-footer">
                     <h3 class="h4 mb-2">OUR MENU</h3>
                     <ul>
-                    <li><a href="#">BREAKFAST</a></li>
-                    <li><a href="#">DRINKS</a></li>
-                    <li><a href="#">MAINS</a></li>
-                    <li><a href="#">DESSERTS</a></li>
+                    <li><a href="{{ asset('product-category/big-on-breakfast') }}">BREAKFAST</a></li>
+                    <li><a href="{{ asset('product-category/perfected-drinks') }}">MAINS</a></li>
+                    <li><a href="{{ asset('product-category/generous-big-meals') }}">DRINKS</a></li>
+                    <li><a href="{{ asset('product-category/decadent-desserts') }}">DESSERTS</a></li>
                     </ul>
                 </div>
             </div><!--OUR MENU-->
@@ -176,13 +176,13 @@
             </div>
             <div class="col-lg-12 col-md-12 footr-privacy">
                 <ul>
-                    <li><a href="#" class="fl">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Use</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Partners</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Feedback</a></li>
+                    <li><a href="/policy" class="fl">Privacy Policy</a></li>
+                    <li><a href="/terms">Terms of Use</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                    <li><a href="/partners">Partners</a></li>
+                    <li><a href="/career">Careers</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#feedbackModal">Feedback</a></li>
 
                 </ul>
          </div>

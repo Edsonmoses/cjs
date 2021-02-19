@@ -29,7 +29,7 @@
                                       <a href="#contact-us"><img src="{{ asset('assets/img/menuIcons/locations.png')}}" alt="Second slide">Locations</a>
                                   </li>
                                   <li>
-                                      <a href="career.html"><img src="{{ asset('assets/img/menuIcons/blog.png')}}" alt="Second slide">Careers</a>
+                                      <a href="/career"><img src="{{ asset('assets/img/menuIcons/blog.png')}}" alt="Second slide">Careers</a>
                                   </li>
                                   <li>
                                       <a href="#" data-toggle="modal" data-target="#feedbackModal"><img src="{{ asset('assets/img/menuIcons/menu.png')}}" alt="Second slide">Feedback</a>

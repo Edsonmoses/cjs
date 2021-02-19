@@ -37,13 +37,26 @@
                 <div class="mt-6 email-list">
                     <p class="text-muted mb-0">Join our email list</p>
                         <div class="content">
-                        <div class="input-group">
-                             <input type="email" class="form-control" placeholder="Enter your email">
-                             <span class="input-group-btn">
-                             <button class="btn sub" type="submit">Subscribe</button><!--<br class="unb">-->
-                             <button class="btn unsub" type="submit">Unsubscribe</button>
-                             </span>
-                              </div>
+                            @if ($message = Session::get('success'))
+                            <div class="alert alert-success alert-block">
+                                    <strong>{{ $message }}</strong>
+                            </div>
+                            @endif
+                            @if ($message = Session::get('error'))
+                            <div class="alert alert-danger alert-block">
+                                    <strong>{{ $message }}</strong>
+                            </div>
+                            @endif
+                            <form method="post" action="{{url('newsletter')}}">
+                                @csrf
+                                <div class="input-group">
+                                    <input type="text"  name="email" class="form-control" placeholder="Enter your email">
+                                    <span class="input-group-btn">
+                                    <button class="btn sub" type="submit">Subscribe</button><!--<br class="unb">-->
+                                    <button class="btn unsub" type="submit">Unsubscribe</button>
+                                    </span>
+                                </div>
+                            </form>
                         </div>
                     <p class="text-muted mb-0">By clicking "SUBSCRIBE" I agree to receive news, promotions, information, and offers from CJ's.</p>
                     <p style="height:30px;"></p>
@@ -88,10 +101,10 @@
                 <div class="mt-5 menu-footer">
                     <h3 class="h4 mb-2">OUR MENU</h3>
                     <ul>
-                    <li><a href="#">BREAKFAST</a></li>
-                    <li><a href="#">DRINKS</a></li>
-                    <li><a href="#">MAINS</a></li>
-                    <li><a href="#">DESSERTS</a></li>
+                        <li><a href="{{ asset('product-category/big-on-breakfast') }}">BREAKFAST</a></li>
+                        <li><a href="{{ asset('product-category/perfected-drinks') }}">MAINS</a></li>
+                        <li><a href="{{ asset('product-category/generous-big-meals') }}">DRINKS</a></li>
+                        <li><a href="{{ asset('product-category/decadent-desserts') }}">DESSERTS</a></li>
                     </ul>
                 </div>
             </div><!--OUR MENU-->
@@ -112,13 +125,13 @@
             </div>
             <div class="col-lg-12 col-md-12 footr-privacy">
                 <ul>
-                    <li><a href="#" class="fl">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Use</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Partners</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Feedback</a></li>
+                    <li><a href="/policy" class="fl">Privacy Policy</a></li>
+                    <li><a href="/terms">Terms of Use</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                    <li><a href="/partners">Partners</a></li>
+                    <li><a href="/career">Careers</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#feedbackModal">Feedback</a></li>
 
                 </ul>
          </div>
