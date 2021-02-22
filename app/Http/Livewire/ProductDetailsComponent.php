@@ -26,6 +26,7 @@ class ProductDetailsComponent extends Component
         $product = Product::where('slug',$this->slug)->first();
         $popular_products = Product::inRandomOrder()->limit(4)->get();
         $related_products = Product::where('subcategory_id',$product->subcategory_id)->inRandomOrder()->limit(6)->get();
-        return view('livewire.product-details-component',['product'=>$product,'popular_products'=>$popular_products,'related_products'=>$related_products])->layout('layouts.base');
+        $subcategories = Subcategory::all();
+        return view('livewire.product-details-component',['product'=>$product,'subcategories'=>$subcategories,'popular_products'=>$popular_products,'related_products'=>$related_products])->layout('layouts.base');
     }
 }

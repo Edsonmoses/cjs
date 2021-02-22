@@ -16,8 +16,31 @@
                    <nav aria-label="breadcrumb">
                        <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/menu">MENU</a></li>
-                        <li class="breadcrumb-item"><a href="#"></a></li>
+                            @foreach($subcategories as $subcategory)
+                                @if ($subcategory->category_id < 1)
+                                    @if ($loop->first)
+                                    <li class="breadcrumb-item"><a href="{{ asset('product-category/big-on-breakfast') }}">BIG ON BREAKFAST</a></li>
+                                    @endif
+                                @elseif ($subcategory->category_id < 2)
+                                @if ($loop->first)
+                                        <li class="breadcrumb-item"><a href="{{ asset('product-category/generous-big-meals') }}">GENEROUS BIG MEALS</a></li>
+                                    @endif
+                                @elseif ($subcategory->category_id < 3)
+                                @if ($loop->first)
+                                        <li class="breadcrumb-item"><a href="{{ asset('product-category/perfected-drinks') }}">PERFECTED DRINKS</a></li>
+                                    @endif
+                                @elseif ($subcategory->category_id < 4)
+                                @if ($loop->first)
+                                    <li class="breadcrumb-item"><a href="{{ asset('product-category/decadent-desserts') }}">DECADENT DESSERTS</a></li>
+                                    @endif
+                                @else
+                                @if ($loop->first)
+                                    I don't have any category!
+                                    @endif
+                                @endif
+                                @endforeach
                         <li class="breadcrumb-item active" aria-current="page">{{$subcategory_name}}</li>
+
                       </ol>
                     </nav>
                 </div>
@@ -29,7 +52,7 @@
                     <img class="img-fluid" src="{{ asset('assets/img/products') }}/{{ $product->image }}" alt="{{ $product->name }}" />
                     <div class="portfolio-box-caption">
                         <div class="project-name text-uppercase" style="border: chartreuse 2px sold">{{$product->name}}</div>
-                        <h3 class="text-green-caption mt-4">{{$product->regular_price}}</h3>
+                        <h3 class="text-green-caption mt-4">{{$product->regular_price}}/= Kshs</h3>
                         {{--<a href="#" class="btn add-to-cart" wire:click.prevent="store({{ $product->id}},'{{ $product->name }}',{{ $product->regular_price}})">Add To Cart</a>  --}}
                     </div>
                 </a>

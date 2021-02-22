@@ -153,8 +153,8 @@
                     <h3 class="h4 mb-2">OUR MENU</h3>
                     <ul>
                     <li><a href="{{ asset('product-category/big-on-breakfast') }}">BREAKFAST</a></li>
-                    <li><a href="{{ asset('product-category/perfected-drinks') }}">MAINS</a></li>
-                    <li><a href="{{ asset('product-category/generous-big-meals') }}">DRINKS</a></li>
+                    <li><a href="{{ asset('product-category/generous-big-meals') }}">MAINS</a></li>
+                    <li><a href="{{ asset('product-category/perfected-drinks') }}">DRINKS</a></li>
                     <li><a href="{{ asset('product-category/decadent-desserts') }}">DESSERTS</a></li>
                     </ul>
                 </div>
