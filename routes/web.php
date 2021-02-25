@@ -21,6 +21,9 @@ use App\Models\Subcategory;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Livewire\CareerComponent;
+use App\Http\Livewire\PrivacyComponent;
+use App\Http\Livewire\TermsComponent;
+use Illuminate\Foundation\Console\PolicyMakeCommand;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +54,10 @@ Route::get('/product-category/{category_slug}',CategoryMenuComponent::class)->na
 Route::get('/product-subcategory/{subcategory_slug}',SubcategoryComponent::class)->name('product.subcategory');
 
 Route::get('/featuredProduct',FeaturedproductComponent::class);
+
+Route::get('/privacy',PrivacyComponent::class);
+
+Route::get('/terms',TermsComponent::class);
 
 Route::get('/deal',DealComponent::class);
 

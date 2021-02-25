@@ -47,6 +47,8 @@ class ProductController extends Controller
         $regular_price = $request->regular_price;
         $image = $request->file('image');
         $subcategory_id = $request->subcategory_id;
+        $addItem = $request->addItem;
+        //$addPrice = $request->addPrice;
 
         $imageName = time().'.'.$image->extension();
         $image->move(public_path('assets/img/products'), $imageName);
@@ -58,6 +60,8 @@ class ProductController extends Controller
         $product->regular_price = $regular_price;
         $product->image = $imageName;
         $product->subcategory_id = $subcategory_id;
+        $product->addItem = $addItem;
+        //$product->addPrice = $addPrice;
         $product->save();
 
         return back()->with('success','Product created successfully.');
@@ -118,6 +122,8 @@ class ProductController extends Controller
         $regular_price = $request->regular_price;
         $image = $request->file('image');
         $subcategory_id = $request->subcategory_id;
+        $addItem = $request->addItem;
+        //$addPrice = $request->addPrice;
 
         $imageName = time().'.'.$image->extension();
         $image->move(public_path('assets/img/products'), $imageName);
@@ -129,6 +135,8 @@ class ProductController extends Controller
         $product->regular_price = $regular_price;
         $product->image = $imageName;
         $product->subcategory_id = $subcategory_id;
+        $product->addItem = $addItem;
+        //$product->addPrice = $addPrice;
         $product->save();
 
         return redirect()->route('products.index')

@@ -59,6 +59,18 @@
         </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Add On:</strong>
+                <input type="text" name="addItem" class="form-control" placeholder="Add On Item">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Add On Price:</strong>
+                <input type="text" name="addPrice" class="form-control" placeholder="Add On Price">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Category:</strong>
             <select class="form-control" name="subcategory_id" required>

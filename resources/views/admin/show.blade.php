@@ -33,14 +33,26 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Image:</strong>
-                {{ $product->image }}
+                <strong>Image:</strong><br/>
+                <img class="img-fluid" src="{{ asset('assets/img/products') }}/{{ $product->image }}" alt="" style="width:300px; height:300px; object-fit:cover;" />
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Category:</strong>
                 {{ $product->subcategory_id }}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Additional Items:</strong>
+                {{ $product->addItem }}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Additional Price:</strong>
+                {{ $product->addPrice}}
             </div>
         </div>
     </div>

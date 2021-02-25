@@ -32,6 +32,7 @@
             <td>{{ ++$i }}</td>
             <td>{{ $value->name }}</td>
             <td>{{ \Str::limit($value->description, 100) }}</td>
+            <td><img class="img-fluid" src="{{ asset('assets/img/products') }}/{{ $value->image }}" alt="" style="width:100px; height:100px; object-fit:cover;" /></td>
             <td>
                 <form action="{{ route('products.destroy',$value->id) }}" method="POST">
                     <a class="btn btn-info" href="{{ route('products.show',$value->id) }}">Show</a>

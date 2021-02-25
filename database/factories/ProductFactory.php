@@ -31,6 +31,8 @@ class ProductFactory extends Factory
             'regular_price' => $this->faker->numberBetween(10,500),
             'image' => 'cjs_'.$this->faker->unique()->numberBetween(1,22).'.jpg',
             'subcategory_id' => $this->faker->numberBetween(1,5),
+            'addItem' => $this->faker->text(255),
+            //'addPrice' => $this->faker->numberBetween(10,500),
         ];
     }
 }

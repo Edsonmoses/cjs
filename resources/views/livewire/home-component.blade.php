@@ -1,13 +1,13 @@
 
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
-        <header class="masthead carousel-item active" style="padding-top: 10rem; padding-bottom: calc(10rem - 4.5rem); background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%), url('./assets/img/190621-CJs-Website-Slider-Changes_.jpg');  background-position: top center; background-repeat: no-repeat; background-attachment: scroll; background-size: cover;">
+        <header class="masthead carousel-item active" style="padding-top: 10rem; padding-bottom: calc(10rem - 4.5rem); background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%), url('./assets/img/190621-CJs-Website-Slider-Changes_.jpg');  background-position: top center; background-repeat: no-repeat; background-attachment: scroll; background-size: cover;">
 
         </header>
-        <header class="masthead carousel-item" style="padding-top: 10rem; padding-bottom: calc(10rem - 4.5rem); background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%),  url('./assets/img/cjs-delivery.jpeg');  background-position: top center; background-repeat: no-repeat; background-attachment: scroll; background-size: cover;">
+        <header class="masthead carousel-item" style="padding-top: 10rem; padding-bottom: calc(10rem - 4.5rem); background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(189, 135, 135, 0.1) 100%),  url('./assets/img/cjs-delivery.jpeg');  background-position: top center; background-repeat: no-repeat; background-attachment: scroll; background-size: cover;">
 
         </header>
-        <header class="masthead carousel-item" style="padding-top: 10rem; padding-bottom: calc(10rem - 4.5rem); background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%),  url('./assets/img/fruitful-breakfast.jpeg');  background-position: top center; background-repeat: no-repeat; background-attachment: scroll; background-size: cover;">
+        <header class="masthead carousel-item" style="padding-top: 10rem; padding-bottom: calc(10rem - 4.5rem); background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%),  url('./assets/img/fruitful-breakfast.jpeg');  background-position: top center; background-repeat: no-repeat; background-attachment: scroll; background-size: cover;">
 
         </header>
           <div class="main-sidebar hidden-xs">
@@ -50,7 +50,7 @@
 </div>
 <!-- About-->
 <section class="bg-primary" id="page-card">
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-lg-6 col-sm-6 pt-3">
                 <a class="portfolio-box" href="#">

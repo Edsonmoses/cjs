@@ -52,6 +52,7 @@ class SubcategoryComponent extends Component
             $products = Product::where('subcategory_id',$subcategory_id)->paginate($this->pagesize);
         }
         $subcategories = Subcategory::all();
-        return view('livewire.subcategory-component',['products'=> $products,'subcategories'=>$subcategories, 'subcategory_name'=>$subcategory_name,'subcategory_image'=>$subcategory_image,'subcategory_featured'=>$subcategory_featured])->layout("layouts.base");
+        $categories = Category::all();
+        return view('livewire.subcategory-component',['products'=> $products,'subcategories'=>$subcategories,'categories'=>$categories, 'subcategory_name'=>$subcategory_name,'subcategory_image'=>$subcategory_image,'subcategory_featured'=>$subcategory_featured])->layout("layouts.base");
     }
 }

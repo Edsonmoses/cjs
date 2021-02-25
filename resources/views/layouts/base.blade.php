@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>CJ's - Menu</title>
+        <title>@yield('meta_title', 'CJs - Menu')</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon.ico') }}" />
         <!-- Font Awesome icons (free version)-->
@@ -30,7 +30,7 @@
                         <li class="nav-item"><a  href="/" class="nav-link js-scroll-trigger {{ request()->is('/') ? 'active' : '' }}">HOME</a></li>
                         <li class="nav-item"><a  href="/menu" class="nav-link js-scroll-trigger {{ request()->is('menu') ? 'active' : '' }}">MENU</a></li>
                         <li class="nav-item"><a  href="/featuredProduct" class="nav-link js-scroll-trigger {{ request()->is('featuredProduct') ? 'active' : '' }}">FEATURED PRODUCTS</a></li>
-                        <li class="nav-item"><a  href="/deal" class="nav-link js-scroll-trigger {{ request()->is('deal') ? 'active' : '' }}">DEALS</a></li>
+                        {{-- <liclass="nav-item"><ahref="/deal"class="nav-linkjs-scroll-triggerrequest()->is('deal')?'active':''}}">DEALS</a></li>--}}
 						{{-- @if(Route::has('login'))
                             @auth
                                 @if(Auth::user()->utype === 'ADM')
@@ -103,8 +103,8 @@
                             <div class="input-group">
                                 <input type="text"  name="email" class="form-control" placeholder="Enter your email">
                                 <span class="input-group-btn">
-                                <button class="btn sub" type="submit">Subscribe</button><!--<br class="unb">-->
-                                <button class="btn unsub" type="submit">Unsubscribe</button>
+                                <input class="btn sub" type="submit" value="Subscribe"><!--<br class="unb">-->
+                                <input class="btn unsub" type="submit" value="Unsubscribe">
                                 </span>
                             </div>
                         </form>
@@ -121,17 +121,6 @@
         <div class="container">
          <div class="row">
             <div class="col-lg-3 col-md-6">
-                <div class="mt-5 location-footer">
-                    <h3 class="h4 mb-2">LOCATIONS</h3>
-                    <ul>
-                      <li class="loch1"><a href="#">Nairobi</a></li>
-                      <li><a href="#">Karen Waterfront</a></li>
-                      <li><a href="#">Village Market</a></li>
-                      <li><a href="#">Koinange Street</a></li>
-                    </ul>
-                </div>
-            </div><!--LOCATIONS-->
-            <div class="col-lg-3 col-md-6">
                 <div class="mt-5 contact-footer">
                     <h3 class="h4 mb-2">CONTACT US</h3>
                     <ul>
@@ -142,12 +131,23 @@
                     <li class="coth2"><a href="#">Village Market</a></li>
                     <li><a href="tel:+254796000090">+254 796 000 090</a></li>
                     <li><a href="tel:+254 799000090">+254 799 000 090</a></li>
-                    <li class="coth2"><a href="#">Karen Waterfront</a></li>
+                    <li class="coth2"><a href="#">The Waterfront Mall, Karen</a></li>
                     <li><a href="tel:+254701000090">+254 701 000 090</a></li>
                     <li><a href="tel:+254702000090">+254 702 000 090</a></li>
                     </ul>
                 </div>
             </div><!--CONTACT US-->
+            <div class="col-lg-3 col-md-6">
+            <div class="mt-5 location-footer">
+                <h3 class="h4 mb-2">LOCATIONS</h3>
+                <ul>
+                  <li class="loch1"><a href="#">Nairobi</a></li>
+                  <li><a href="#">Koinange Street</a></li>
+                  <li><a href="#">Village Market</a></li>
+                  <li><a href="#">The Waterfront Mall, Karen</a></li>
+                </ul>
+            </div>
+        </div><!--LOCATIONS-->
             <div class="col-lg-3 col-md-6">
                 <div class="mt-5 menu-footer">
                     <h3 class="h4 mb-2">OUR MENU</h3>
@@ -176,12 +176,9 @@
             </div>
             <div class="col-lg-12 col-md-12 footr-privacy">
                 <ul>
-                    <li><a href="/policy" class="fl">Privacy Policy</a></li>
+                    <li><a href="/privacy" class="fl">Privacy Policy</a></li>
                     <li><a href="/terms">Terms of Use</a></li>
-                    <li><a href="/contact">Contact Us</a></li>
-                    <li><a href="/partners">Partners</a></li>
                     <li><a href="/career">Careers</a></li>
-                    <li><a href="/blog">Blog</a></li>
                     <li><a href="#" data-toggle="modal" data-target="#feedbackModal">Feedback</a></li>
 
                 </ul>
@@ -259,6 +256,29 @@
         window.on('productAdded',()=>{
             $('#addProductModal').model('hide');
         })
+
     </script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            //using jquery
+            var href = jQuery(location).attr('href');
+            var title = document.title;
+            if (title === 'BREAKFAST COMBOS' || title === 'FRUITFUL MORNINGS' || title === 'DESIGNER OMELETTES'  || title === 'AMAZING MUFFINS'  || title === 'EXTRAS'  || title === 'PASTRIES'  || title === 'FLUFFY PANCAKES'  || title === 'WONDERFUL WAFFLES'  || title === 'KIDDIE BREAKFAST'){
+                jQuery('#WikiTitle').html('<li class="breadcrumb-item"><a href="{{ asset("product-category/big-on-breakfast") }}">BIG ON BREAKFAST</a></li>');
+            }else if (title === 'STARTERS AND APPETIZERS'  || title === 'BITS & BITES'  || title === 'SOULFUL SOUPS'  || title === 'SALADS'  || title === 'SANDWICHES'  || title === 'BURGERS'  || title === 'CHICKEN'  || title === 'FISH'  || title === 'BEEF'  || title === 'CURRIES'  || title === 'PASTA'  || title === 'PIZZA'  || title === 'MEX-FIX'  || title === 'KIDDIE MEALS'){
+                jQuery('#WikiTitle').html('<li class="breadcrumb-item"><a href="{{ asset("product-category/generous-big-meals") }}">GENEROUS BIG MEALS</a></li>');
+            }
+            else if (title === 'COFFEE' || title === 'CAPPUCCINO'  || title === 'LATTE'  || title === 'ICED LATTE'  || title === 'MOCHA'  || title === 'ICED MOCHA'  || title === 'TEA'  || title === 'CHOCOLATE'  || title === 'DAWA TEAS'  || title === 'FAMOUS COLADAS'  || title === 'HANDCRAFTED LEMONADES'  || title === 'REFRESHING ICED TEAS'  || title === 'NOJITOS'  || title === 'SPECIALTY JUICES'  || title === 'FRUIT BOOSTERS'  || title === 'REAL-FRUIT SMOOTHIES'  || title === 'GOURMET MILKSHAKES'  || title === 'KIDDIE DRINKS'){
+                jQuery('#WikiTitle').html('<li class="breadcrumb-item"><a href="{{ asset("product-category/perfected-drinks") }}">PERFECTED DRINKS');
+            }
+            else if (title === 'CAKE SLICES' || title === 'PREMIUM ICE CREAM' || title === 'A LA MODE' || title === 'SUNDAES' || title === 'FRUITFUL DELIGHT' || title === 'PASTRIES' || title === 'SPECIALTY CAKES' || title === 'CHEESE CAKES' || title === 'DATE TRUFFLES'){
+                jQuery('#WikiTitle').html('<li class="breadcrumb-item"><a href="{{ asset("product-category/decadent-desserts") }}">DECADENT DESSERTS</a></li>');
+            }
+
+
+            //using plain javascript
+
+        });
+        </script>
 </body>
 </html>

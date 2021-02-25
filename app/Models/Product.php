@@ -18,5 +18,7 @@ class Product extends Model
         'regular_price',
         'image',
         'subcategory_id',
+        'addItem',
+        'addPrice',
     ];
 }

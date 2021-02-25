@@ -69,17 +69,7 @@
     <footer class="bg-light py-5" id="contact-us">
         <div class="container">
          <div class="row">
-            <div class="col-lg-3 col-md-6">
-                <div class="mt-5 location-footer">
-                    <h3 class="h4 mb-2">LOCATIONS</h3>
-                    <ul>
-                      <li class="loch1"><a href="#">Nairobi</a></li>
-                      <li><a href="#">Karen Waterfront</a></li>
-                      <li><a href="#">Village Market</a></li>
-                      <li><a href="#">Koinange Street</a></li>
-                    </ul>
-                </div>
-            </div><!--LOCATIONS-->
+
             <div class="col-lg-3 col-md-6">
                 <div class="mt-5 contact-footer">
                     <h3 class="h4 mb-2">CONTACT US</h3>
@@ -91,12 +81,23 @@
                     <li class="coth2"><a href="#">Village Market</a></li>
                     <li><a href="tel:+254796000090">+254 796 000 090</a></li>
                     <li><a href="tel:+254 799000090">+254 799 000 090</a></li>
-                    <li class="coth2"><a href="#">Karen Waterfront</a></li>
+                    <li class="coth2"><a href="#">The Waterfront Mall, Karen</a></li>
                     <li><a href="tel:+254701000090">+254 701 000 090</a></li>
                     <li><a href="tel:+254702000090">+254 702 000 090</a></li>
                     </ul>
                 </div>
             </div><!--CONTACT US-->
+            <div class="col-lg-3 col-md-6">
+                <div class="mt-5 location-footer">
+                    <h3 class="h4 mb-2">LOCATIONS</h3>
+                    <ul>
+                      <li class="loch1"><a href="#">Nairobi</a></li>
+                      <li><a href="#">Koinange Street</a></li>
+                      <li><a href="#">Village Market</a></li>
+                      <li><a href="#">The Waterfront Mall, Karen</a></li>
+                    </ul>
+                </div>
+            </div><!--LOCATIONS-->
             <div class="col-lg-3 col-md-6">
                 <div class="mt-5 menu-footer">
                     <h3 class="h4 mb-2">OUR MENU</h3>
@@ -125,12 +126,9 @@
             </div>
             <div class="col-lg-12 col-md-12 footr-privacy">
                 <ul>
-                    <li><a href="/policy" class="fl">Privacy Policy</a></li>
+                    <li><a href="/privacy" class="fl">Privacy Policy</a></li>
                     <li><a href="/terms">Terms of Use</a></li>
-                    <li><a href="/contact">Contact Us</a></li>
-                    <li><a href="/partners">Partners</a></li>
                     <li><a href="/career">Careers</a></li>
-                    <li><a href="/blog">Blog</a></li>
                     <li><a href="#" data-toggle="modal" data-target="#feedbackModal">Feedback</a></li>
 
                 </ul>
