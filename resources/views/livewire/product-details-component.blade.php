@@ -52,7 +52,7 @@
                 <div class="col-lg-6 col-sm-6 p-3 submenu-box" style="margin-bottom: 150px !important;">
                    <h2 class="text-blue mt-0 text-uppercase">{{ $product->name }}</h2>
                    <p class="text-muted mb-4">{{ $product->description }}</p>
-                   <h3 class="text-green-caption-m mt-0">{{-- $product->regular_price --}}Kshs <?php echo number_format((float)$product->regular_price, 0, ',', '');?>/=</h3>
+                   <h3 class="text-green-caption-m mt-0">{{-- $product->regular_price --}}<?php echo number_format((float)$product->regular_price, 0, ',', '');?></h3>
                    <p class="text-muted mb-4">{{ $product->stock_status }}</p>
                    <h4 class="text-blue mt-0 text-uppercase" style="font-weight: bold; font-size: 18px;">Additional Items</h4>
                    <table class="table table-borderless">

@@ -30,7 +30,7 @@
                     <img class="img-fluid" src="{{ asset('assets/img/products') }}/{{ $product->image }}" alt="{{ $product->name }}" />
                     <div class="portfolio-box-caption">
                         <div class="project-name text-uppercase" style="border: chartreuse 2px sold">{{$product->name}}</div>
-                        <h3 class="text-green-caption mt-4">{{-- $product->regular_price --}} <?php echo number_format((float)$product->regular_price, 0, ',', '');?> /= Kshs</h3>
+                        <h3 class="text-green-caption mt-4">{{-- $product->regular_price --}} <?php echo number_format((float)$product->regular_price, 0, ',', '');?></h3>
                         {{--<a href="#" class="btn add-to-cart" wire:click.prevent="store({{ $product->id}},'{{ $product->name }}',{{ $product->regular_price}})">Add To Cart</a>  --}}
                     </div>
                 </a>

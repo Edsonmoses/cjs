@@ -52,8 +52,8 @@
                                 <div class="input-group">
                                     <input type="text"  name="email" class="form-control" placeholder="Enter your email">
                                     <span class="input-group-btn">
-                                    <button class="btn sub" type="submit">Subscribe</button><!--<br class="unb">-->
-                                    <button class="btn unsub" type="submit">Unsubscribe</button>
+                                        <input class="btn sub" type="submit" value="Subscribe"><!--<br class="unb">-->
+                                        <input class="btn unsub" type="submit" value="Unsubscribe">
                                     </span>
                                 </div>
                             </form>
