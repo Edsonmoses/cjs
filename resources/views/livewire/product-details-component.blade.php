@@ -55,12 +55,12 @@
                    <h3 class="text-green-caption-m mt-0">{{-- $product->regular_price --}}<?php echo number_format((float)$product->regular_price, 0, ',', '');?></h3>
                    <p class="text-muted mb-4">{{ $product->stock_status }}</p>
                    <h4 class="text-blue mt-0 text-uppercase" style="font-weight: bold; font-size: 18px;">Additional Items</h4>
-                   <table class="table table-borderless">
+                   {{--<table class="table table-borderless">
                        <tr>
                            <td colspan="2">{{ $product->addItem }}</td>
-                           {{-- <td>+$product->addPrice }}</td>--}}
+                           {{-- <td>+$product->addPrice }}</td>
                        </tr>
-                   </table>
+                   </table>--}}
                 </div>
             </div>
             <!--popular_products-->
