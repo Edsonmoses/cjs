@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->text('description');
             $table->decimal('regular_price');
             $table->string('image')->nullable();
+            $table->string('thurmbnail')->nullable();
             $table->bigInteger('subcategory_id')->unsigned()->nullable();
             $table->string('addItem');
             //$table->decimal('addPrice');

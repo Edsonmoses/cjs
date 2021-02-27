@@ -53,21 +53,22 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-        <strong>Image:</strong>
-        <input type="file" name="image" class="form-control" placeholder="Enter Image" onchange="previewFile(this)">
+        <strong>Thurmbnail:</strong>
+        <input type="file" name="thurmbnail" class="form-control" placeholder="Enter Thurmbnail" onchange="previewFile(this)">
         <img id="previewImg" src="{{ asset('assets/img/placeholder.jpg') }}" alt="product image" style="max-width: :130px; margin-top:20px;" width="130"/>
         </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Add On:</strong>
-                <input type="text" name="addItem" class="form-control" placeholder="Add On Item">
+              <strong>Image:</strong>
+              <input type="file" name="image" class="form-control" placeholder="Enter Image" onchange="previewFile(this)">
+              <img id="previewImg" src="{{ asset('assets/img/placeholder.jpg') }}" alt="product image" style="max-width: :130px; margin-top:20px;" width="130"/>
             </div>
-        </div>
+            </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Add On Price:</strong>
-                <input type="text" name="addPrice" class="form-control" placeholder="Add On Price">
+                <strong>Add On:</strong>
+                <textarea class="form-control" style="height:150px" name="addItem" placeholder="Add On Item"></textarea>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">

@@ -54,21 +54,22 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
+                <strong>Thurmbnail:</strong>
+                 <input type="file" name="thurmbnail" class="form-control" placeholder="Enter Thurmbnail"value="{{ $product->thurmbnail }}" onchange="previewFile(this)">
+                <img id="previewImg" src="{{ asset('assets/img/products') }}/{{ $product->thurmbnail }}" alt="product image" width="130" style="margin-top: 20px;"/>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
                 <strong>Image:</strong>
-                 <input type="file" name="image" class="form-control" placeholder="Enter Image" onchange="previewFile(this)">
+                 <input type="file" name="image" class="form-control" placeholder="Enter Image" value="{{ $product->image }}" onchange="previewFile(this)">
                 <img id="previewImg" src="{{ asset('assets/img/products') }}/{{ $product->image }}" alt="product image" width="130" style="margin-top: 20px;"/>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Add On:</strong>
-                    <input type="text" name="addItem" value="{{ $product->addItem }}" class="form-control" placeholder="Add On Item">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Add On Price:</strong>
-                    <input type="text" name="addPrice" value="{{ $product->addPrice }}" class="form-control" placeholder="Add On Price">
+                    <textarea class="form-control" style="height:150px" name="addItem" placeholder="Add On Item">{{ $product->addItem}}</textarea>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -77,13 +78,15 @@
                     <select class="form-control" name="subcategory_id">
                         @if(count($categories) > 0)
                             @foreach($categories as $category)
-                                <option value="{{ $category->id }}"{{ $category->id === old('category_id') ? 'selected' : '' }}>{{ $category->name }}</option>
+                            <option value="{{ $category->id }}" {{ $category->id == old('subcategory_id', $product->subcategory_id) ? 'selected' : '' }}>
+                             {{ $category->name }}
+                            </option>
                             @endforeach
                         @endif
                     </select>
                     @if($errors->has('category_id'))
                         <div class='text text-danger'>
-                            {{ $errors->first('category_id') }}
+                            {{ $errors->first('subcategory_id') }}
                         </div>
                     @endif
                 </div>

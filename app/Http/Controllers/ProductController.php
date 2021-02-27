@@ -46,12 +46,15 @@ class ProductController extends Controller
         $description = $request->description;
         $regular_price = $request->regular_price;
         $image = $request->file('image');
+        $thurmbnail = $request->file('thurmbnail');
         $subcategory_id = $request->subcategory_id;
         $addItem = $request->addItem;
         //$addPrice = $request->addPrice;
 
         $imageName = time().'.'.$image->extension();
+        $thurmbnailName = time().'.'.$thurmbnail->extension();
         $image->move(public_path('assets/img/products'), $imageName);
+        $thurmbnail->move(public_path('assets/img/products'), $thurmbnailName);
 
         $product = new Product();
         $product->name = $name;
@@ -59,6 +62,7 @@ class ProductController extends Controller
         $product->description = $description;
         $product->regular_price = $regular_price;
         $product->image = $imageName;
+        $product->thurmbnail = $thurmbnailName;
         $product->subcategory_id = $subcategory_id;
         $product->addItem = $addItem;
         //$product->addPrice = $addPrice;
@@ -121,12 +125,15 @@ class ProductController extends Controller
         $description = $request->description;
         $regular_price = $request->regular_price;
         $image = $request->file('image');
+        $thurmbnail = $request->file('thurmbnail');
         $subcategory_id = $request->subcategory_id;
         $addItem = $request->addItem;
         //$addPrice = $request->addPrice;
 
         $imageName = time().'.'.$image->extension();
+        $thurmbnailName = time().'.'.$thurmbnail->extension();
         $image->move(public_path('assets/img/products'), $imageName);
+        $thurmbnail->move(public_path('assets/img/products'), $thurmbnailName);
 
         $product = Product::find($product->id);
         $product->name = $name;
@@ -134,6 +141,7 @@ class ProductController extends Controller
         $product->description = $description;
         $product->regular_price = $regular_price;
         $product->image = $imageName;
+        $product->thurmbnail = $thurmbnailName;
         $product->subcategory_id = $subcategory_id;
         $product->addItem = $addItem;
         //$product->addPrice = $addPrice;
