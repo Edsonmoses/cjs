@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SubcategoryController;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
@@ -68,6 +69,14 @@ Route::resource('products', ProductController::class);
 Route::resource('category', CategoryController::class);
 
 Route::resource('subcategory', SubcategoryController::class);
+
+Route::get('/update', [ImageController::class, 'update']);
+
+Route::post('/store', [ImageController::class, 'store']);
+
+Route::get('/subUpdate', [ImageController::class, 'subUpdate']);
+
+Route::post('/storeSub', [ImageController::class, 'storeSub']);
 
 Route::get('newsletter',[NewsletterController::class, 'create']);
 Route::post('newsletter',[NewsletterController::class, 'store']);

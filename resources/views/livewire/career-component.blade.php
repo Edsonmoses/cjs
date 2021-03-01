@@ -11,7 +11,7 @@
 </header>
 <!-- About-->
 <section id="page-card">
-  <div class="container-fluid career">
+  <div class="container career">
         <div class="row">
             <div class="col-lg-12 mx-auto">
                 <h2 class="text-white mb-4">JOIN THE CREW.</h2>

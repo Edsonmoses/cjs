@@ -53,11 +53,15 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
+                <form action="{{ url('/update',$product->id) }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
                 <div class="form-group">
                 <strong>Thurmbnail:</strong>
                  <input type="file" name="thurmbnail" class="form-control" placeholder="Enter Thurmbnail"value="{{ $product->thurmbnail }}" onchange="previewFile(this)">
                 <img id="previewImg" src="{{ asset('assets/img/products') }}/{{ $product->thurmbnail }}" alt="product image" width="130" style="margin-top: 20px;"/>
                 </div>
+                </form>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">

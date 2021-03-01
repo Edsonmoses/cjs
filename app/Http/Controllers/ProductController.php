@@ -52,9 +52,9 @@ class ProductController extends Controller
         //$addPrice = $request->addPrice;
 
         $imageName = time().'.'.$image->extension();
-        $thurmbnailName = time().'.'.$thurmbnail->extension();
+        $thurmbnails = time().'.'.$thurmbnail->extension();
         $image->move(public_path('assets/img/products'), $imageName);
-        $thurmbnail->move(public_path('assets/img/products'), $thurmbnailName);
+        $thurmbnail->move(public_path('assets/img/products'), $thurmbnails);
 
         $product = new Product();
         $product->name = $name;
@@ -62,7 +62,7 @@ class ProductController extends Controller
         $product->description = $description;
         $product->regular_price = $regular_price;
         $product->image = $imageName;
-        $product->thurmbnail = $thurmbnailName;
+        $product->thurmbnail = $thurmbnails;
         $product->subcategory_id = $subcategory_id;
         $product->addItem = $addItem;
         //$product->addPrice = $addPrice;
@@ -125,15 +125,12 @@ class ProductController extends Controller
         $description = $request->description;
         $regular_price = $request->regular_price;
         $image = $request->file('image');
-        $thurmbnail = $request->file('thurmbnail');
         $subcategory_id = $request->subcategory_id;
         $addItem = $request->addItem;
-        //$addPrice = $request->addPrice;
+
 
         $imageName = time().'.'.$image->extension();
-        $thurmbnailName = time().'.'.$thurmbnail->extension();
         $image->move(public_path('assets/img/products'), $imageName);
-        $thurmbnail->move(public_path('assets/img/products'), $thurmbnailName);
 
         $product = Product::find($product->id);
         $product->name = $name;
@@ -141,10 +138,8 @@ class ProductController extends Controller
         $product->description = $description;
         $product->regular_price = $regular_price;
         $product->image = $imageName;
-        $product->thurmbnail = $thurmbnailName;
         $product->subcategory_id = $subcategory_id;
         $product->addItem = $addItem;
-        //$product->addPrice = $addPrice;
         $product->save();
 
         return redirect()->route('products.index')
@@ -164,6 +159,7 @@ class ProductController extends Controller
         return redirect()->route('products.create')
                         ->with('success','Product updated successfully');*/
     }
+
 
     /**
      * Remove the specified resource from storage.

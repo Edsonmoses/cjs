@@ -10,7 +10,7 @@
     </div>
 </header>
 <section class="bg-primary" id="page-card">
-    <div class="container-fluid">
+    <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-12">
                    <nav aria-label="breadcrumb">
@@ -27,7 +27,7 @@
             @foreach($products as $product)
             <div class="col-lg-3 col-sm-6 pt-3 submenu-box subcat">
                 <a class="portfolio-box" href="{{ route('product.details',['slug'=>$product->slug]) }}">
-                    <img class="img-fluid" src="{{ asset('assets/img/products') }}/{{ $product->image }}" alt="{{ $product->name }}" />
+                    <img class="img-fluid" src="{{ asset('assets/img/products') }}/{{ $product->thurmbnail }}" alt="{{ $product->name }}" />
                     <div class="portfolio-box-caption">
                         <div class="project-name text-uppercase" style="border: chartreuse 2px sold">{{$product->name}}</div>
                         <h3 class="text-green-caption mt-4">{{-- $product->regular_price --}} <?php echo number_format((float)$product->regular_price, 0, ',', '');?></h3>

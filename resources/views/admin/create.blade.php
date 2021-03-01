@@ -52,11 +52,14 @@
         </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
+        <form action="{{ url('/store') }}" method="POST" enctype="multipart/form-data">
+                @csrf
         <div class="form-group">
         <strong>Thurmbnail:</strong>
         <input type="file" name="thurmbnail" class="form-control" placeholder="Enter Thurmbnail" onchange="previewFile(this)">
         <img id="previewImg" src="{{ asset('assets/img/placeholder.jpg') }}" alt="product image" style="max-width: :130px; margin-top:20px;" width="130"/>
         </div>
+        </form>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">

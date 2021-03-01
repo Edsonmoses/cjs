@@ -47,11 +47,14 @@
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
+        <form action="{{ url('storeSub') }}" method="POST" enctype="multipart/form-data">
+            @csrf
         <div class="form-group">
         <strong>Cover Image:</strong>
         <input type="file" name="featured" class="form-control" placeholder="Enter Cover Image" onchange="previewFile(this)">
         <img id="previewImgs" src="{{ asset('assets/img/placeholder.jpg') }}" alt="product image" style="max-width: :130px; margin-top:20px;" width="130"/>
         </div>
+        </form>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">

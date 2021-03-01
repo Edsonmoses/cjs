@@ -45,41 +45,20 @@ class SubcategoryController extends Controller
         $name = $request->name;
         $slug = $request->slug;
         $image = $request->file('image');
-        $featured = $request->file('featured');
         $category_id = $request->category_id;
 
         $imageName = time().'.'.$image->extension();
-        $fimageName = time().'.'.$featured->extension();
         $image->move(public_path('assets/img/subcategory'), $imageName);
-        $featured->move(public_path('assets/img/subcategory'), $fimageName);
 
         $subcategory = new Subcategory();
         $subcategory->name = $name;
         $subcategory->slug = $slug;
         $subcategory->image = $imageName;
-        $subcategory->featured = $fimageName;
         $subcategory->category_id = $category_id;
         $subcategory->save();
 
         return back()->with('success','Subcategory created successfully.');
 
-       /* $validatedData = $request->validate([
-            'name' => 'required',
-            'slug' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048', // Only allow .jpg, .bmp and .png file types.
-            'featured' => 'required|image|mimes:jpeg,png,jpg|max:2048', // Only allow .jpg, .bmp and .png file types.
-            'category_id' => 'required',
-        ]);
-        $validatedData['slug'] = Str::slug($validatedData['slug'], '-');
-
-        $imageName = time().'.'.$request->image->extension();
-
-        $request->image->move(public_path('assets\img'), $imageName);
-        Subcategory::create($request->all());
-
-        return redirect()->route('subcategory.create')
-                        ->with('success','Subcategory created successfully.')
-                        ->with('image',$imageName);*/
     }
 
     /**
@@ -131,28 +110,10 @@ class SubcategoryController extends Controller
         $subcategory->image = $imageName;
         $subcategory->featured = $fimageName;
         $subcategory->category_id = $category_id;
-       // $subcategory->category_id()->sync($request->category_id);
         $subcategory->save();
 
         return redirect()->route('subcategory.index')
                         ->with('success','Subcategory updated successfully');
-       /* $validatedData = $request->validate([
-            'name' => 'required',
-            'slug' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Only allow .jpg, .bmp and .png file types.
-            'featured' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Only allow .jpg, .bmp and .png file types.
-            'category_id' => 'required',
-        ]);
-        $validatedData['slug'] = Str::slug($validatedData['slug'], '-');
-        $imageName = time().'.'.$request->image->extension();
-
-        $request->image->move(public_path('assets\img'), $imageName);
-
-        $subcategory->update($request->all());
-
-        return redirect()->route('subcategory.create')
-                        ->with('success','Subcategory updated successfully')
-                        ->with('image',$imageName);*/
     }
 
     /**

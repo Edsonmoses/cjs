@@ -48,11 +48,15 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
+                <form action="{{ url('subUpdate',$subcategory->id) }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
                 <div class="form-group">
                 <strong>Cover Image:</strong>
                 <input type="file" name="featured" class="form-control" placeholder="Enter Image"  onchange="previewFile(this)">
                 <img id="previewImg2" src="{{ asset('assets/img/subcategory') }}/{{ $subcategory->featured }}" alt="product image" width="130" style="margin-top: 20px;"/>
                 </div>
+                </form>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">

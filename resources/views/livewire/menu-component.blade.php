@@ -1,6 +1,6 @@
 <section class="bg-primary" id="page-card">
 </div>
-<div class="container-fluid">
+<div class="container">
     <div class="row justify-content-center">
         <div class="col-lg-12 text-center">
             <h2 class="text-blue mt-0">Welcome To CJ’s!!</h2>
