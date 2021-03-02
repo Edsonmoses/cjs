@@ -1,13 +1,34 @@
 
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
-        <header class="masthead carousel-item active" style="padding-top: 10rem; padding-bottom: calc(10rem - 4.5rem); background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%), url('./assets/img/190621-CJs-Website-Slider-Changes_.jpg');  background-position: top center; background-repeat: no-repeat; background-attachment: scroll; background-size: cover;">
+        <header class="masthead carousel-item active" style="padding-top: 10rem; padding-bottom: calc(10rem - 4.5rem); background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%), url('./assets/img/banner-9.jpg');  background-position: top center; background-repeat: no-repeat; background-attachment: scroll; background-size: cover;">
 
         </header>
-        <header class="masthead carousel-item" style="padding-top: 10rem; padding-bottom: calc(10rem - 4.5rem); background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(189, 135, 135, 0.1) 100%),  url('./assets/img/cjs-delivery.jpeg');  background-position: top center; background-repeat: no-repeat; background-attachment: scroll; background-size: cover;">
+        <header class="masthead carousel-item" style="padding-top: 10rem; padding-bottom: calc(10rem - 4.5rem); background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(189, 135, 135, 0.1) 100%),  url('./assets/img/banner-8.jpg');  background-position: top center; background-repeat: no-repeat; background-attachment: scroll; background-size: cover;">
+
+        </header>
+        <header class="masthead carousel-item" style="padding-top: 10rem; padding-bottom: calc(10rem - 4.5rem); background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%),  url('./assets/img/banner-7.jpg');  background-position: top center; background-repeat: no-repeat; background-attachment: scroll; background-size: cover;">
+
+        </header>
+        <header class="masthead carousel-item" style="padding-top: 10rem; padding-bottom: calc(10rem - 4.5rem); background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%),  url('./assets/img/banner-6.jpg');  background-position: top center; background-repeat: no-repeat; background-attachment: scroll; background-size: cover;">
+
+        </header>
+        <header class="masthead carousel-item" style="padding-top: 10rem; padding-bottom: calc(10rem - 4.5rem); background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%),  url('./assets/img/banner-5.jpg');  background-position: top center; background-repeat: no-repeat; background-attachment: scroll; background-size: cover;">
+
+        </header>
+        <header class="masthead carousel-item" style="padding-top: 10rem; padding-bottom: calc(10rem - 4.5rem); background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%),  url('./assets/img/banner-4.jpg');  background-position: top center; background-repeat: no-repeat; background-attachment: scroll; background-size: cover;">
+
+        </header>
+        <header class="masthead carousel-item" style="padding-top: 10rem; padding-bottom: calc(10rem - 4.5rem); background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%),  url('./assets/img/banner-3.jpg');  background-position: top center; background-repeat: no-repeat; background-attachment: scroll; background-size: cover;">
+
+        </header>
+        <header class="masthead carousel-item" style="padding-top: 10rem; padding-bottom: calc(10rem - 4.5rem); background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%),  url('./assets/img/Banner_02.png');  background-position: top center; background-repeat: no-repeat; background-attachment: scroll; background-size: cover;">
 
         </header>
         <header class="masthead carousel-item" style="padding-top: 10rem; padding-bottom: calc(10rem - 4.5rem); background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%),  url('./assets/img/fruitful-breakfast.jpeg');  background-position: top center; background-repeat: no-repeat; background-attachment: scroll; background-size: cover;">
+
+        </header>
+        <header class="masthead carousel-item" style="padding-top: 10rem; padding-bottom: calc(10rem - 4.5rem); background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%),  url('./assets/img/190621-CJs-Website-Slider-Changes_.jpg');  background-position: top center; background-repeat: no-repeat; background-attachment: scroll; background-size: cover;">
 
         </header>
           <div class="main-sidebar hidden-xs">
