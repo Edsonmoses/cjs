@@ -28,9 +28,9 @@
             <div class="row">
             <div class="col-lg-3 col-md-6">
                 <div class="mt-3 social-footer">
-                        <a href="#"><i class="fab fa-facebook-square" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fab fa-twitter-square" aria-hidden="true"></i></a>
+                        <a href="https://www.facebook.com/CJs254/"><i class="fab fa-facebook-square" aria-hidden="true"></i></a>
+                        <a href="https://www.instagram.com/cjs254/?hl=en"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="https://twitter.com/cjs_254/status/1160817144558444544"><i class="fab fa-twitter-square" aria-hidden="true"></i></a>
                     </div>
                 </div><!--social icon-->
                 <div class="col-lg-12 col-md-12">
@@ -111,11 +111,11 @@
             </div><!--OUR MENU-->
             <div class="col-lg-3 col-md-6">
                 <div class="mt-5 tripadvisor-footer">
-                    <div id="TA_selfserveprop558" class="TA_selfserveprop" style="background:#a8b49e !important">
+                    <!--<div id="TA_selfserveprop558" class="TA_selfserveprop" style="background:#a8b49e !important">
                         <ul id="YXrvZ6nXFiM" class="TA_links BR2vVE6h" style="background:#a8b49e !important">
                             <li id="btoVpSBLpqC" class="NaatAn" style="background:#a8b49e !important"><a style="background:#a8b49e !important" href="https://www.tripadvisor.com/" target="_blank" rel="noopener"><img src="https://www.tripadvisor.com/img/cdsi/img2/branding/150_logo-11900-2.png" alt="TripAdvisor" /></a></li>
                         </ul>
-                        </div>
+                        </div>-->
                    <script async src="https://www.jscache.com/wejs?wtype=selfserveprop&amp;uniq=558&amp;locationId=14008730&amp;lang=en_US&amp;rating=true&amp;nreviews=0&amp;writereviewlink=false&amp;popIdx=true&amp;iswide=false&amp;border=false&amp;display_version=2"></script>
                   </div>
                 </div>

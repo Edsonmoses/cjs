@@ -10333,7 +10333,7 @@ header.masthead h1 {
 	font-family: 'Brandon Text', sans-serif;
     color: #152f4e;
     font-weight: 700;
-    margin-left: -34px !important;
+    margin-left: 14px !important;
     /*text-shadow: 2px 2px 1px rgba(150, 150, 150, 0.5);*/
   }
 }
@@ -10642,7 +10642,10 @@ transition: all 0.25s ease-in-out;
 /**menu page**/
 #mainNav{border-bottom: solid 1px #0a2a4d;}
 .main-logo img{
-	max-height: 50px;
+	max-height: 65px !important;
+    width: 200px;
+    height: auto;
+    margin-left: -31px !important;
 }
 .menu-box img{
 	border-radius:10px !important;
