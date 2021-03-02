@@ -10490,6 +10490,11 @@ text-decoration:none;
     margin-right: -309px !important;
     }
 }
+@media only screen and (min-width: 992px) {
+    #sidebar-h {
+    margin-right: -51px !important;
+    }
+}
 @media only screen and (max-width: 768px) {
 header.masthead{
 	height:100vh;
