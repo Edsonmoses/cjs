@@ -10479,6 +10479,11 @@ text-decoration:none;
 #sidebar-h ul li.active > a {
   background: transparent;
   color: #fff; }
+  @media only screen and (min-width: 1920px) {
+    #sidebar-h {
+    margin-right: -309px !important;
+    }
+}
 @media only screen and (max-width: 768px) {
 header.masthead{
 	height:100vh;
@@ -10504,6 +10509,7 @@ header.masthead{
       height: 182px !important;
   }
 }
+
   /**footer custom style**/
 .text-blue {
 	color: #152f4e !important;
