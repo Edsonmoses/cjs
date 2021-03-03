@@ -632,8 +632,8 @@ hr {
 
 small,
 .small {
-  font-size: 90%;
-  font-weight: 400;
+  font-size: 16px;
+  font-weight: 500;
   font-family: 'Brandon Text', sans-serif !important;
 }
 
@@ -6352,7 +6352,7 @@ button.bg-danger:focus {
   background-color: #a8b49e !important;
   font-family: 'Brandon Text', sans-serif !important;
 	font-weight:500;
-	font-size:18px !important;
+	font-size:16px !important;
 }
 
 a.bg-light:hover, a.bg-light:focus,
@@ -10479,21 +10479,7 @@ text-decoration:none;
 #sidebar-h ul li.active > a {
   background: transparent;
   color: #fff; }
-  @media only screen and (min-width: 1920px) {
-    #sidebar-h {
-    margin-right: -309px !important;
-}
 
-@media only screen and (min-width: 1200px) {
-    #sidebar-h {
-    margin-right: -309px !important;
-    }
-}
-@media only screen and (max-width: 992px) {
-    #sidebar-h {
-    margin-right: -51px !important;
-    }
-}
 @media only screen and (max-width: 768px) {
 header.masthead{
 	height:100vh;
@@ -10536,9 +10522,9 @@ header.masthead{
      color: #152f4e  !important;
  }
 .email-list p{
-	color: #152f4e  !important;
+	color: #152f4e !important;
 	font-family: 'Brandon Text', sans-serif !important;
-	font-size: 18px !important;
+	font-size: 16px !important;
 }
 
 .email-list .content {
@@ -10586,7 +10572,7 @@ transition: all 0.25s ease-in-out;
     margin-left: -38px !important;
 	font-family: 'Brandon Text', sans-serif !important;
 	font-weight:500;
-	font-size:18px !important;
+	font-size:16px !important;
 }
 .location-footer ul li a{
 	color:#152f4e !important;
@@ -10612,7 +10598,7 @@ transition: all 0.25s ease-in-out;
 	text-decoration: none !important;
 	font-family: 'Brandon Text', sans-serif !important;
 	font-weight:500;
-	font-size:18px !important;
+	font-size:16px !important;
 }
 .contact-footer .coth2{
 	padding-top:15px;
@@ -10623,7 +10609,7 @@ transition: all 0.25s ease-in-out;
 	margin-left: -38px !important;
 	font-family: 'Brandon Text', sans-serif !important;
 	font-weight:500;
-	font-size:18px !important;
+	font-size:16px !important;
 }
 .menu-footer ul li a{
 	color:#152f4e !important;
@@ -10631,7 +10617,9 @@ transition: all 0.25s ease-in-out;
 }
 .location-footer .h4,.contact-footer .h4,.menu-footer .h4,.tripadvisor-footer .h4{
 	color:#044064 !important;
-	font-weight: bold;
+	font-weight: 700;
+  font-family: 'Brandon Text', sans-serif;
+  font-size: 18px;
 }
 .footr-privacy ul li{
 	list-style: none !important;
@@ -10641,6 +10629,7 @@ transition: all 0.25s ease-in-out;
 	color:#152f4e !important;
     border-left: 1px solid #152f4e;
 	padding: 0 5px 0 5px;
+  font-size:17px;
 }
 .footr-privacy ul li .fl:nth-child(1){
 	color:#152f4e !important;
@@ -10875,4 +10864,21 @@ svg{
   background-repeat: no-repeat !important; /* Do not repeat the image */
   background-size: cover !important;
   margin-top: 20px !important;
+}
+
+
+ @media only screen and (min-width: 1920px) {
+    #sidebar-h {
+    margin-right: -309px !important;
+}
+
+@media only screen and (min-width: 1200px) {
+    #sidebar-h {
+    margin-right: -309px !important;
+    }
+}
+@media only screen and (max-width: 992px) {
+    #sidebar-h {
+    margin-right: -51px !important;
+    }
 }
