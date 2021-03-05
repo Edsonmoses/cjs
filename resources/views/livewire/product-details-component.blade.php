@@ -110,10 +110,10 @@
                     <a href="#" class="btn add-to-cart btn-green" wire:click.prevent="store({{ $product->id}},'{{ $product->name }}',{{ $product->regular_price}})">ADD TO ORDER</a>
                     <a href="#" class="btn add-to-favourite btn-green" wire:click.prevent="store({{ $product->id}},'{{ $product->name }}',{{ $product->regular_price}})">ADD TO FAVOURITE</a>
                     </div>--}}
-                   {{--@if (!empty($product->addItem))
+                   @if (!empty($product->addItem))
                    <h4 class="text-blue mt-0 text-uppercase" style="font-weight: bold; font-size: 18px;">Additional Items</h4>
                    {!!html_entity_decode($product->addItem)!!}
-                   @endif--}}
+                   @endif
                 </div>
             </div>
             <!--popular_products-->
