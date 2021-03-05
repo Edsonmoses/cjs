@@ -10,7 +10,7 @@
             @foreach($subcategories as $category)
             <div class="col-lg-3 col-sm-6 pt-3 submenu-box">
                 <a class="portfolio-box" href="{{ route('product.details',['subcategory_slug'=>$category->slug]) }}">
-                    <img class="img-fluid" src="{{ asset('assets/img') }}/{{ $category->image }}" alt="{{ $category->name }}" />
+                    <img class="img-fluid" src="{{ asset('assets/img/products') }}/{{ $category->image }}" alt="{{ $category->name }}" />
                     <div class="portfolio-box-caption">
                         <div class="project-name">{{$category->name}}</div>
                         <a href="#" class="btn add-to-cart" wire:click.prevent="store({{ $category->id}},'{{ $category->name }}')">Add To Cart</a>

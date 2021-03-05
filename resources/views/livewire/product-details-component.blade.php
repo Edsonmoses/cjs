@@ -43,7 +43,7 @@
             </div>
         </div>
         <div class="container">
-            <div class="row">
+            <div class="row pdetails">
                 <div class="col-lg-6 col-sm-6 pt-3 submenu-boxs">
                     <a class="portfolio-box">
                         <img class="img-fluid" src="{{ asset('assets/img/products') }}/{{ $product->image }}" alt="" />
@@ -54,10 +54,66 @@
                    <p class="text-muted mb-4">{{ $product->description }}</p>
                    <h3 class="text-green-caption-m mt-0">{{-- $product->regular_price --}}<?php echo number_format((float)$product->regular_price, 0, ',', '');?></h3>
                    <p class="text-muted mb-4">{{ $product->stock_status }}</p>
-                   @if (!empty($product->addItem))
+                   {{-- <div class="mt-4">
+                   <label class="text-muted">CHOICE OF JUICE</label>
+                   <select class="form-control form-select form-select-lg" aria-label=".form-select-lg example">
+                    <option selected>Select the option</option>
+                    <option value="1">PASSION</option>
+                    <option value="2">COCKTAIL</option>
+                    <option value="3">WATERMELON</option>
+                    <option value="1">PINEAPPLE</option>
+                    <option value="2">CARROT</option>
+                    <option value="3">SUBSITUTE HALF ORANGE JUICE</option>
+                    <option value="2">BEETROOT</option>
+                    <option value="3">MANGO</option>
+                   </select>
+                  </div>
+                  <div class="mt-4">
+                  <label class="text-muted">CHOICE OF HOT BEVERAGE</label>
+                   <select class="form-control form-select form-select-lg" aria-label=".form-select-lg example">
+                    <option selected>Select the option</option>
+                    <option value="1">HOUSE COFFEE WHITE</option>
+                    <option value="2">HOUSE COFFEE BLACK</option>
+                    <option value="3">AFRICAN TEA SPICED</option>
+                    <option value="3">AFRICAN TEA NON-SPICED</option>
+                    <option value="3">BLACK TEA SPICED</option>
+                    <option value="3">BLACK TEA NON-SPICED</option>
+                    <option value="3">LEMON TEA</option>
+                    <option value="3">DAWA TEA</option>
+                  </select>
+                    </div>
+                    <div class="mt-4 mb-4">
+                  <label class="text-muted">CHOOSE AN ACCOMPANIMENT</label>
+                   <select class="form-control form-select form-select-lg" aria-label=".form-select-lg example">
+                    <option selected>Select the option</option>
+                    <option value="1">HOME FRIES</option>
+                    <option value="2">SUBSTITUTE HOME FRIES WITH CHIPS</option>
+                    <option value="3">SUBSTITUTE HOME FRIES WITH PLANTAIN</option>
+                  </select>
+                    </div>
+                    <h4 class="text-blue mt-0 text-uppercase" style="font-weight: bold; font-size: 18px;">Additional Items</h4>
+                    <table>
+                        <tr>
+                            <td>
+                                <label class="container-inner">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </td>
+                            <td style="width:84%;">
+                                 ADD Fruit bowl
+                            </td>
+                            <td>+ 150 </td>
+                        </tr>
+                    </table>
+                    <div class="mt-5 mb-4">
+                    <a href="#" class="btn add-to-cart btn-green" wire:click.prevent="store({{ $product->id}},'{{ $product->name }}',{{ $product->regular_price}})">ADD TO ORDER</a>
+                    <a href="#" class="btn add-to-favourite btn-green" wire:click.prevent="store({{ $product->id}},'{{ $product->name }}',{{ $product->regular_price}})">ADD TO FAVOURITE</a>
+                    </div>--}}
+                   {{--@if (!empty($product->addItem))
                    <h4 class="text-blue mt-0 text-uppercase" style="font-weight: bold; font-size: 18px;">Additional Items</h4>
                    {!!html_entity_decode($product->addItem)!!}
-                   @endif
+                   @endif--}}
                 </div>
             </div>
             <!--popular_products-->

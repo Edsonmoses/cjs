@@ -17,7 +17,7 @@
             @foreach(Cart::content() as $item)
             <div class="col-lg-2 col-sm-2 pt-3 submenu-box">
                 <a class="portfolio-box" href="{{ route('product.details',['slug'=>$item->model->slug]) }}">
-                    <img class="img-fluid" src="{{ asset('assets/img') }}/{{ $item->model->image }}" alt="{{ $item->model->name }}" />
+                    <img class="img-fluid" src="{{ asset('assets/img/products') }}/{{ $item->model->image }}" alt="{{ $item->model->name }}" />
                 </a>
             </div>
             <div class="col-lg-3 col-sm-3 pt-3 submenu-box">

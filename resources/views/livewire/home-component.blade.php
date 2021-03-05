@@ -32,13 +32,13 @@
 
         </header>
           <div class="main-sidebar hidden-xs">
-            <div class="container h-100">
+            <div class="container-fluid h-100">
             <div class="row h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-8 col-md-8 align-self-baseline d-none d-sm-block">
                         <!--<p class="text-white-75 font-weight-light mb-5">Start Bootstrap can help you build better websites using the Bootstrap framework! Just download a theme and start customizing, no strings attached!</p>
                         <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>-->
                     </div>
-                    <div class="col-lg-4 col-md-4 align-self-end">
+                    <div class="col-lg-4 col-md-6 align-self-end">
                         <nav id="sidebar-h">
                             <div class="pt-5">
                                 <a href="#" class="img logo" style="background-image: url(./assets/img/logo-white.png);"></a>
