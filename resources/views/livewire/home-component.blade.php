@@ -1,36 +1,11 @@
 
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
-        <header class="masthead carousel-item active" style="padding-top: 10rem; padding-bottom: calc(10rem - 4.5rem); background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%), url('./assets/img/banner-9.jpg');  background-position: top center; background-repeat: no-repeat; background-attachment: scroll; background-size: cover;">
+        @foreach($sliders as $slide)
+            <header class="masthead carousel-item {{ $loop->first ? ' active' : '' }}" style="padding-top: 10rem; padding-bottom: calc(10rem - 4.5rem); background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%), url('{{ asset('assets/img/sliders') }}/{{ $slide->image }}');  background-position: top center; background-repeat: no-repeat; background-attachment: scroll; background-size: cover;">
 
-        </header>
-        <header class="masthead carousel-item" style="padding-top: 10rem; padding-bottom: calc(10rem - 4.5rem); background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(189, 135, 135, 0.1) 100%),  url('./assets/img/banner-8.jpg');  background-position: top center; background-repeat: no-repeat; background-attachment: scroll; background-size: cover;">
-
-        </header>
-        <header class="masthead carousel-item" style="padding-top: 10rem; padding-bottom: calc(10rem - 4.5rem); background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%),  url('./assets/img/banner-7.jpg');  background-position: top center; background-repeat: no-repeat; background-attachment: scroll; background-size: cover;">
-
-        </header>
-        <header class="masthead carousel-item" style="padding-top: 10rem; padding-bottom: calc(10rem - 4.5rem); background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%),  url('./assets/img/banner-6.jpg');  background-position: top center; background-repeat: no-repeat; background-attachment: scroll; background-size: cover;">
-
-        </header>
-        <header class="masthead carousel-item" style="padding-top: 10rem; padding-bottom: calc(10rem - 4.5rem); background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%),  url('./assets/img/banner-5.jpg');  background-position: top center; background-repeat: no-repeat; background-attachment: scroll; background-size: cover;">
-
-        </header>
-        <header class="masthead carousel-item" style="padding-top: 10rem; padding-bottom: calc(10rem - 4.5rem); background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%),  url('./assets/img/banner-4.jpg');  background-position: top center; background-repeat: no-repeat; background-attachment: scroll; background-size: cover;">
-
-        </header>
-        <header class="masthead carousel-item" style="padding-top: 10rem; padding-bottom: calc(10rem - 4.5rem); background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%),  url('./assets/img/banner-3.jpg');  background-position: top center; background-repeat: no-repeat; background-attachment: scroll; background-size: cover;">
-
-        </header>
-        <header class="masthead carousel-item" style="padding-top: 10rem; padding-bottom: calc(10rem - 4.5rem); background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%),  url('./assets/img/Banner_02.png');  background-position: top center; background-repeat: no-repeat; background-attachment: scroll; background-size: cover;">
-
-        </header>
-        <header class="masthead carousel-item" style="padding-top: 10rem; padding-bottom: calc(10rem - 4.5rem); background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%),  url('./assets/img/fruitful-breakfast.jpeg');  background-position: top center; background-repeat: no-repeat; background-attachment: scroll; background-size: cover;">
-
-        </header>
-        <header class="masthead carousel-item" style="padding-top: 10rem; padding-bottom: calc(10rem - 4.5rem); background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%),  url('./assets/img/190621-CJs-Website-Slider-Changes_.jpg');  background-position: top center; background-repeat: no-repeat; background-attachment: scroll; background-size: cover;">
-
-        </header>
+            </header>
+        @endforeach
           <div class="main-sidebar hidden-xs">
             <div class="container-fluid h-100">
             <div class="row h-100 align-items-center justify-content-center text-center">
@@ -82,6 +57,33 @@
                 <a class="portfolio-box" href="#">
                     <img class="img-fluid" src="{{asset('assets/img/home-page-superfoods-brand-new.jpg')}}" alt="" />
                 </a>
+            </div>
+            <div class="col-md-12">
+                <div class="wrap-product-tab tab-style-1">
+                    @foreach($categories as $key => $category)
+                        <a href="#category_{{ $category->id }}" class="tab-control-item {{ $key==0 ? 'active':'' }}">{{ $category->name }}</a>
+                    @endforeach
+                </div>
+                <div class="tab-contents">
+                    <div class="tab-content-item {{ $key==0 ? 'active':'' }}" id="category_{{ $category->id }}">
+                        <div class="wrap-products slide-carousel owl-carousel style-nav-1 equal-container" data-items="5" data-loop="false" data-responsive='{"0":{ "items": }}'>
+                            <div class="row">
+                            @foreach($categories as $category)
+                            @php
+                                $c_products = DB::table('products')->where('subcategory_id',$category->id)->get()->take($no_of_products);
+                            @endphp
+                            @foreach($c_products as $c_product)
+                            <div class="col-lg-4 col-sm-4 p-3">
+                            <a class="portfolio-box" href="#">
+                                <img class="img-fluid" src="{{asset('assets/img/products')}}/{{ $c_product->image }}" alt="{{ $c_product->name }}" />
+                            </a>
+                            </div>
+                            @endforeach
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

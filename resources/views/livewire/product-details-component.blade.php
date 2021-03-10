@@ -54,7 +54,7 @@
                    <p class="text-muted mb-4">{{ $product->description }}</p>
                    <h3 class="text-green-caption-m mt-0">{{-- $product->regular_price --}}<?php echo number_format((float)$product->regular_price, 0, ',', '');?></h3>
                    <p class="text-muted mb-4">{{ $product->stock_status }}</p>
-                   {{-- <div class="mt-4">
+                   <div class="mt-4">
                    <label class="text-muted">CHOICE OF JUICE</label>
                    <select class="form-control form-select form-select-lg" aria-label=".form-select-lg example">
                     <option selected>Select the option</option>
@@ -103,17 +103,17 @@
                             <td style="width:84%;">
                                  ADD Fruit bowl
                             </td>
-                            <td>+ 150 </td>
+                            <td>+ 150</td>
                         </tr>
                     </table>
                     <div class="mt-5 mb-4">
                     <a href="#" class="btn add-to-cart btn-green" wire:click.prevent="store({{ $product->id}},'{{ $product->name }}',{{ $product->regular_price}})">ADD TO ORDER</a>
                     <a href="#" class="btn add-to-favourite btn-green" wire:click.prevent="store({{ $product->id}},'{{ $product->name }}',{{ $product->regular_price}})">ADD TO FAVOURITE</a>
-                    </div>--}}
-                   @if (!empty($product->addItem))
+                    </div>
+                   {{--@if (!empty($product->addItem))
                    <h4 class="text-blue mt-0 text-uppercase" style="font-weight: bold; font-size: 18px;">Additional Items</h4>
                    {!!html_entity_decode($product->addItem)!!}
-                   @endif
+                   @endif--}}
                 </div>
             </div>
             <!--popular_products-->

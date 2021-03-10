@@ -27,10 +27,10 @@ class CartComponent extends Component
         session()->flash('success_message','Item has been removed');
     }
 
-    public function destroyAll($rowId)
+    public function destroyAll()
     {
         Cart::destroy();
-        session()->flash('success_message','Cart has been cleared');
+        session()->flash('success_message',' Cart has been cleared');
     }
 
     public function render()

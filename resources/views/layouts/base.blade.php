@@ -17,6 +17,8 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{{ asset('assets/css/styles.css') }}" rel="stylesheet" />
+
+       <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
         @livewireStyles
     </head>
     <body id="page-top">
@@ -31,13 +33,27 @@
                         <li class="nav-item"><a  href="/menu" class="nav-link js-scroll-trigger {{ request()->is('menu') ? 'active' : '' }}">MENU</a></li>
                         <li class="nav-item"><a  href="/featuredProduct" class="nav-link js-scroll-trigger {{ request()->is('featuredProduct') ? 'active' : '' }}">FEATURED PRODUCTS</a></li>
                         {{-- <liclass="nav-item"><ahref="/deal"class="nav-linkjs-scroll-triggerrequest()->is('deal')?'active':''}}">DEALS</a></li>--}}
-						{{-- @if(Route::has('login'))
+						@if(Route::has('login'))
                             @auth
                                 @if(Auth::user()->utype === 'ADM')
                                     <li class="nav-item dropdown"><a href="#" class="nav-link js-scroll-trigger dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-user-circle" aria-hidden="true"></i>({{ Auth::user()->name }})</a>
                                         <ul class="dropdown-menu">
                                             <li class="nav-item"><a href="#" class="nav-link js-scroll-trigger">My Account ({{ Auth::user()->name }})</a></li>
-                                            <li class="nav-item"><a href="{{route('admin.dashboard')}}" class="nav-link js-scroll-trigger">Dashboard</a></li>
+                                            <li class="nav-item">
+                                                <a title="Dashboard" href="{{route('admin.dashboard')}}" class="nav-link js-scroll-trigger">Dashboard</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a title="Categories" href="{{route('admin.categories')}}" class="nav-link js-scroll-trigger">Categories</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a title="Products" href="{{route('admin.products')}}" class="nav-link js-scroll-trigger">All Products</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a title="Manage Home Slider" href="{{route('admin.homeslider')}}" class="nav-link js-scroll-trigger">Manage Home Slider</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a title="Manage Home Categories" href="{{route('admin.homecategories')}}" class="nav-link js-scroll-trigger">Manage Home Categories</a>
+                                            </li>
                                             <li class="menu-item">
                                                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"  class="nav-link js-scroll-trigger">Login</a>
                                             </li>
@@ -50,7 +66,9 @@
                                 <li class="nav-item dropdown"><a href="#" class="nav-link js-scroll-trigger dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-user-circle" aria-hidden="true"></i>({{ Auth::user()->name }})</a>
                                     <ul class="dropdown-menu">
                                         <li class="nav-item"><a href="#" class="nav-link js-scroll-trigger">My Account ({{ Auth::user()->name }})</a></li>
-                                        <li class="nav-item"><a href="{{route('user.dashboard')}}" class="nav-link js-scroll-trigger">Dashboard</a></li>
+                                        <li class="nav-item">
+                                            <a href="{{route('user.dashboard')}}" class="nav-link js-scroll-trigger">Dashboard</a>
+                                        </li>
                                         <li class="menu-item">
                                             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"  class="nav-link js-scroll-trigger">Login</a>
                                         </li>
@@ -65,8 +83,9 @@
                                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('register') }}">Register</a></li>
                                 @endif
                         @endif
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">@if(Cart::count() > 0) <span class="index">{{ Cart::count() }} items</span>@endif<br/> CART</a></li>
-						--}}
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">
+                            <i class="fa fa-shopping-basket" aria-hidden="true" style="font-size: 32px;"></i>@if(Cart::count() > 0) <span class="index">{{ Cart::count() }} items in </span>@endif Cart</a></li>
+
                     </ul>
                 </div>
             </div>
@@ -251,7 +270,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
     <!-- Core theme JS-->
     <script src="{{ asset('assets/js/scripts.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     @livewireScripts
+
+    @stack('scripts');
     <script>
         window.on('productAdded',()=>{
             $('#addProductModal').model('hide');

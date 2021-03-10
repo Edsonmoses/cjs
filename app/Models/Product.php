@@ -22,4 +22,9 @@ class Product extends Model
         'addItem',
         //'addPrice',
     ];
+
+    public function subcategory()
+    {
+        return $this->belongsTo(Subcategory::class,'subcategory_id');
+    }
 }
