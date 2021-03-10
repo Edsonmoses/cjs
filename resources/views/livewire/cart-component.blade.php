@@ -13,46 +13,54 @@
                     <strong>Success</strong>{{ Session::get('success_message') }}
                 </div>
             @endif
+            <div class="col-lg-12 col-sm-12 pt-3">
+                <table class="table table-borderless">
             @if(Cart::count()> 0)
             @foreach(Cart::content() as $item)
-            <div class="col-lg-2 col-sm-2 pt-3 submenu-box">
-                <a class="portfolio-box" href="{{ route('product.details',['slug'=>$item->model->slug]) }}">
-                    <img class="img-fluid" src="{{ asset('assets/img/products') }}/{{ $item->model->image }}" alt="{{ $item->model->name }}" />
-                </a>
-            </div>
-            <div class="col-lg-3 col-sm-3 pt-3 submenu-box">
-                <a class="portfolio-box" href="{{ route('product.details',['slug'=>$item->model->slug]) }}">
-                    <div class="portfolio-box-caption">
-                        <div class="project-name">{{$item->model->name}}</div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-2 col-sm-2 pt-3 submenu-box">
-                    <div class="portfolio-box-caption">
-                        <p class="price">{{ $item->model->regular_price}}</p>
-                    </div>
-            </div>
-            <div class="col-lg-3 col-sm-3 pt-3 submenu-box">
-                    <div class="portfolio-box-caption">
-                        <input type="text" name="product-quatity" value="{{ $item->qty }}" data-max="120" pattern="[0-9]*">
-                        <a class="btn btn-increase" href="#" wire:click.prevent="increaseQuantity('{{ $item->rowId }}')">+</a>
-                        <a class="btn btn-reduce" href="#" wire:click.prevent="decreaseQuantity('{{ $item->rowId }}')">-</a>
-                    </div>
-            </div>
-            <div class="col-lg-1 col-sm-1 pt-3 submenu-box">
-                <div class="portfolio-box-caption">
-                    <p class="price"><b class="index">{{ $item->subtotal }}</b></p>
-                </div>
-        </div>
-            <div class="col-lg-1 col-sm-1 pt-3 submenu-box">
-                    <div class="portfolio-box-caption">
-                        <a class="btn btn-increase" href="#" wire:click.prevent="destroy('{{ $item->rowId }}')">x</a>
-                    </div>
-            </div>
+
+                   <tr>
+                       <td>
+                           <a class="portfolio-box" href="{{ route('product.details',['slug'=>$item->model->slug]) }}">
+                            <img class="img-fluid" src="{{ asset('assets/img/products') }}/{{ $item->model->image }}" alt="{{ $item->model->name }}" width="60" />
+                            </a>
+                        </td>
+                        <td>
+                            <a class="portfolio-box" href="{{ route('product.details',['slug'=>$item->model->slug]) }}">
+                                <div class="portfolio-box-caption">
+                                    <div class="project-name">{{$item->model->name}}</div>
+                                </div>
+                            </a>
+                        </td>
+                        <td>
+                            <div class="portfolio-box-caption">
+                                <p class="price">{{ $item->model->regular_price}}</p>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="portfolio-box-caption" style="width: 260px !important">
+                                <input type="text" name="product-quatity" value="{{ $item->qty }}" data-max="120" pattern="[0-9]*" class="form-control input-md" style="width: 170px !important; float: right;">
+                                <a class="btn btn-increase" href="#" wire:click.prevent="increaseQuantity('{{ $item->rowId }}')">+</a>
+                                <a class="btn btn-reduce" href="#" wire:click.prevent="decreaseQuantity('{{ $item->rowId }}')">-</a>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="portfolio-box-caption">
+                                <p class="price">{{ $item->subtotal }}</p>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="portfolio-box-caption">
+                                <a class="btn btn-increase" href="#" wire:click.prevent="destroy('{{ $item->rowId }}')">x</a>
+                            </div>
+                        </td>
+                   </tr>
+
             @endforeach
             @else
                 <p class="text-blue-2 mb-4">No item in cart</p>
             @endif
+                </table>
+            </div>
             <div class="col-lg-12 col-sm-12 pt-3 summary">
                 <div class="order-summary">
                     <h4 class="text-blue-2title-box">Order Summary</h4>
