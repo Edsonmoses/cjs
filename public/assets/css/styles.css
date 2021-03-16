@@ -10691,7 +10691,7 @@ transition: all 0.25s ease-in-out;
     padding: 15px 0 0 0;
 	font-weight:400;
     height: auto;
-    /*min-height: 65px;*/
+    min-height: 65px;
     font-family: 'Brandon Grotesque', sans-serif !important;
 }
 
