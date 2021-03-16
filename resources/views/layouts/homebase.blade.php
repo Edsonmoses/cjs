@@ -133,7 +133,7 @@
 
                 </ul>
          </div>
-        <div class="col-lg-12 col-md-12"><div class="small text-blue">&copy; 2021 Cafe Javas. All Rights Reserved</div></div>
+        <div class="col-lg-12 col-md-12"><div class="small text-blue">&copy; <?php echo date("Y"); ?> CJ's. All Rights Reserved</div></div>
         </div>
     </div>
     </footer>

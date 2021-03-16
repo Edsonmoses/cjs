@@ -10691,13 +10691,10 @@ transition: all 0.25s ease-in-out;
     padding: 15px 0 0 0;
 	font-weight:400;
     height: auto;
-    min-height: 65px;
+    /*min-height: 65px;*/
     font-family: 'Brandon Grotesque', sans-serif !important;
 }
 
-element {
-
-}
 .pdetails label {
 
     display: inline-block;
@@ -10879,18 +10876,12 @@ svg{
 }
 
 
- @media only screen and (min-width: 1920px) {
+ /*@media only screen and (min-width: 1920px) {
     #sidebar-h {
     margin-right: -309px !important;
 }
- }
+ }*/
 
-
-@media only screen and (max-width: 992px) {
-   /* #sidebar-h {
-    margin-right: -51px !important;
-    }*/
-}
 /* The container for checkbox */
 .container-inner {
     display: block !important;

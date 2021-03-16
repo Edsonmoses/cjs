@@ -33,7 +33,7 @@
                         <li class="nav-item"><a  href="/menu" class="nav-link js-scroll-trigger {{ request()->is('menu') ? 'active' : '' }}">MENU</a></li>
                         <li class="nav-item"><a  href="/featuredProduct" class="nav-link js-scroll-trigger {{ request()->is('featuredProduct') ? 'active' : '' }}">FEATURED PRODUCTS</a></li>
                         {{-- <liclass="nav-item"><ahref="/deal"class="nav-linkjs-scroll-triggerrequest()->is('deal')?'active':''}}">DEALS</a></li>--}}
-						@if(Route::has('login'))
+						{{--@if(Route::has('login'))
                             @auth
                                 @if(Auth::user()->utype === 'ADM')
                                     <li class="nav-item dropdown"><a href="#" class="nav-link js-scroll-trigger dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-user-circle" aria-hidden="true"></i>({{ Auth::user()->name }})</a>
@@ -84,7 +84,8 @@
                                 @endif
                         @endif
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">
-                            <i class="fa fa-shopping-basket" aria-hidden="true" style="font-size: 32px;"></i>@if(Cart::count() > 0) <span class="index">{{ Cart::count() }} items in </span>@endif Cart</a></li>
+                            <i class="fa fa-shopping-basket" aria-hidden="true" style="font-size: 32px;"></i>@if(Cart::count() > 0) <span class="index">{{ Cart::count() }} items in </span>@endif Cart</a>
+                        </li>--}}
 
                     </ul>
                 </div>
@@ -202,7 +203,7 @@
 
                 </ul>
          </div>
-        <div class="col-lg-12 col-md-12"><div class="small text-blue">&copy; 2021 Cafe Javas. All Rights Reserved</div></div>
+        <div class="col-lg-12 col-md-12"><div class="small text-blue">&copy; <?php echo date("Y"); ?> CJ's. All Rights Reserved</div></div>
         </div>
     </div>
     </footer>
