@@ -19,6 +19,7 @@
         <link href="{{ asset('assets/css/styles.css') }}" rel="stylesheet" />
 
        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.4/nouislider.min.css" integrity="sha512-8czuHxKbajKuQfbgBv5iwqftC1PbeLPmgVOYo8ZDlcOdi0OV18E+BbGQdqXs490kV9ZmJQTNupd0kvW8hokJlw==" crossorigin="anonymous" />
         @livewireStyles
     </head>
     <body id="page-top">
@@ -33,7 +34,7 @@
                         <li class="nav-item"><a  href="/menu" class="nav-link js-scroll-trigger {{ request()->is('menu') ? 'active' : '' }}">MENU</a></li>
                         <li class="nav-item"><a  href="/featuredProduct" class="nav-link js-scroll-trigger {{ request()->is('featuredProduct') ? 'active' : '' }}">FEATURED PRODUCTS</a></li>
                         {{-- <liclass="nav-item"><ahref="/deal"class="nav-linkjs-scroll-triggerrequest()->is('deal')?'active':''}}">DEALS</a></li>--}}
-						{{--@if(Route::has('login'))
+						@if(Route::has('login'))
                             @auth
                                 @if(Auth::user()->utype === 'ADM')
                                     <li class="nav-item dropdown"><a href="#" class="nav-link js-scroll-trigger dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-user-circle" aria-hidden="true"></i>({{ Auth::user()->name }})</a>
@@ -83,10 +84,8 @@
                                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('register') }}">Register</a></li>
                                 @endif
                         @endif
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">
-                            <i class="fa fa-shopping-basket" aria-hidden="true" style="font-size: 32px;"></i>@if(Cart::count() > 0) <span class="index">{{ Cart::count() }} items in </span>@endif Cart</a>
-                        </li>--}}
-
+                        @livewire('wishlist-count-component')
+                        @livewire('cart-count-component')
                     </ul>
                 </div>
             </div>
@@ -272,6 +271,8 @@
     <!-- Core theme JS-->
     <script src="{{ asset('assets/js/scripts.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.4/nouislider.min.js" integrity="sha512-0Z2o7qmtl7ixxWcEQxxTCT8mX4PsdffSGoVJ7A80zqt6DvdEHF800xrsSmKPkSoUaHtlIhkLAhCPb/tkf78SCA==" crossorigin="anonymous"></script>
+    <script src="https://cdn.tiny.cloud/1/usnjsvt7d3izvnx02koqkyq7f8ofox9rcliwz7pnsp0acn1p/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     @livewireScripts
 
     @stack('scripts');

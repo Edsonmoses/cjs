@@ -33,8 +33,30 @@ class AdminAddProductComponent extends Component
         $this->slug = Str::slug($this->name,'-');
     }
 
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            'name' => 'required',
+            'slug' => 'required|unique:products',
+            'description' => 'required',
+            'regular_price' => 'required|numeric',
+            'image' => 'required|mimes:jpg,jpeg,png',
+            'thurmbnail' => 'required|mimes:jpg,jpeg,png',
+            'subcategory_id' => 'required',
+        ]);
+    }
+
     public function addProduct()
     {
+        $this->validate([
+            'name' => 'required',
+            'slug' => 'required|unique:products',
+            'description' => 'required',
+            'regular_price' => 'required|numeric',
+            'image' => 'required|mimes:jpg,jpeg,png',
+            'thurmbnail' => 'required|mimes:jpg,jpeg,png',
+            'subcategory_id' => 'required',
+        ]);
         $product = new Product();
         $product->name = $this->name;
         $product->slug = $this->slug;
@@ -43,9 +65,9 @@ class AdminAddProductComponent extends Component
         $imageName = Carbon::now()->timestamp.'.'.$this->image->extension();
         $this->image->storeAs('products',$imageName);
         $product->image = $imageName;
-        $imageName = Carbon::now()->timestamp.'.'.$this->thurmbnail->extension();
-        $this->thurmbnail->storeAs('products',$imageName);
-        $product->thurmbnail = $imageName;
+        $thumbName = Carbon::now()->timestamp.'.'.$this->thurmbnail->extension();
+        $this->thurmbnail->storeAs('products',$thumbName);
+        $product->thurmbnail = $thumbName;
         $product->subcategory_id = $this->subcategory_id;
         $product->addItem = $this->addItem;
         $product->save();

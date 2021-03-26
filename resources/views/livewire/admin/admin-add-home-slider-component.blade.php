@@ -22,12 +22,14 @@
                                 <label class="col-md-4 control-label">Title</label>
                                 <div class="col-md-4">
                                     <input type="text" placeholder="Title" class="form-control input-md" wire:model="title"/>
+                                    @error('title')<p class="text-danger">{{ $message }}</p>@enderror
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Link</label>
                                 <div class="col-md-4">
                                     <input type="text" placeholder="Link" class="form-control input-md" wire:model="link"/>
+                                    @error('link')<p class="text-danger">{{ $message }}</p>@enderror
                                 </div>
                             </div>
                             <div class="form-group">
@@ -37,6 +39,7 @@
                                     @if($image)
                                         <img src="{{ $image->temporaryUrl() }}" width="120"/>
                                     @endif
+                                    @error('image')<p class="text-danger">{{ $message }}</p>@enderror
                                 </div>
                             </div>
                             <div class="form-group">
@@ -46,6 +49,7 @@
                                         <option value="0">Inactive</option>
                                         <option value="1">Active</option>
                                     </select>
+                                    @error('status')<p class="text-danger">{{ $message }}</p>@enderror
                                 </div>
                             </div>
                             <div class="form-group">

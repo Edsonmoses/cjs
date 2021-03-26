@@ -44,6 +44,9 @@
         </div>
         <div class="container">
             <div class="row pdetails">
+                @php
+                    $witems = Cart::instance('wishlist')->content()->pluck('id');
+                @endphp
                 <div class="col-lg-6 col-sm-6 pt-3 submenu-boxs">
                     <a class="portfolio-box">
                         <img class="img-fluid" src="{{ asset('assets/img/products') }}/{{ $product->image }}" alt="" />
@@ -51,7 +54,7 @@
                 </div>
                 <div class="col-lg-6 col-sm-6 p-3 submenu-box" style="margin-bottom: 150px !important;">
                    <h2 class="text-blue mt-0 text-uppercase">{{ $product->name }}</h2>
-                   <p class="text-muted mb-4">{{ $product->description }}</p>
+                   <p class="text-muted mb-4">{!! $product->description !!}</p>
                    <h3 class="text-green-caption-m mt-0">{{-- $product->regular_price --}}<?php echo number_format((float)$product->regular_price, 0, ',', '');?></h3>
                    <p class="text-muted mb-4">{{ $product->stock_status }}</p>
                    <div class="mt-4">
@@ -91,7 +94,7 @@
                     <option value="3">SUBSTITUTE HOME FRIES WITH PLANTAIN</option>
                   </select>
                     </div>
-                  {{--  <h4 class="text-blue mt-0 text-uppercase" style="font-weight: bold; font-size: 18px;">Additional Items</h4>
+                  <h4 class="text-blue mt-0 text-uppercase" style="font-weight: bold; font-size: 18px;">Additional Items</h4>
                     <table>
                         <tr>
                             <td>
@@ -108,7 +111,12 @@
                     </table>
                     <div class="mt-5 mb-4">
                     <a href="#" class="btn add-to-cart btn-green" wire:click.prevent="store({{ $product->id}},'{{ $product->name }}',{{ $product->regular_price}})">ADD TO ORDER</a>
-                    <a href="#" class="btn add-to-favourite btn-green" wire:click.prevent="store({{ $product->id}},'{{ $product->name }}',{{ $product->regular_price}})">ADD TO FAVOURITE</a>--}}
+                    @if($witems->contains($product->id))
+                        <a href="#" class="btn add-to-favourite btn-blue" wire:click.prevent="removeFromWishlist({{$product->id }})">ADD TO FAVOURITE</a>
+                    @else
+                        <a href="#" class="btn add-to-favourite btn-green" wire:click.prevent="addToWishlist({{$product->id }},'{{ $product->name }}',{{ $product->regular_price}})">ADD TO FAVOURITE</a>
+                    @endif
+
                     </div>
                    {{--@if (!empty($product->addItem))
                    <h4 class="text-blue mt-0 text-uppercase" style="font-weight: bold; font-size: 18px;">Additional Items</h4>

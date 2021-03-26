@@ -44,8 +44,31 @@ class AdminEditProductComponent extends Component
         $this->slug = Str::slug($this->name,'-');
     }
 
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            'name' => 'required',
+            'slug' => 'required|unique:products',
+            'description' => 'required',
+            'regular_price' => 'required|numeric',
+            'newimage' => 'required|mimes:jpg,jpeg,png',
+            'newthurmbnail' => 'required|mimes:jpg,jpeg,png',
+            'subcategory_id' => 'required',
+        ]);
+    }
+
     public function updateProduct()
     {
+
+        $this->validate([
+            'name' => 'required',
+            'slug' => 'required|unique:products',
+            'description' => 'required',
+            'regular_price' => 'required|numeric',
+            'newimage' => 'required|mimes:jpg,jpeg,png',
+            'newthurmbnail' => 'required|mimes:jpg,jpeg,png',
+            'subcategory_id' => 'required',
+        ]);
         $product = Product::find($this->product_id);
         $product->name = $this->name;
         $product->slug = $this->slug;

@@ -12,20 +12,33 @@ class CheckoutComponent extends Component
 {
     public $sorting;
     public $pagesize;
+
+    public $min_price;
+    public $max_price;
+
     public $category_slug;
 
     public function mount($category_slug)
     {
         $this->sorting = "default";
         $this->pagesize = 4;
+
+        $this->min_price = 1;
+        $this->max_price = 1000;
+
         $this->category_slug = $category_slug;
     }
 
     public function store($product_id,$product_name,$product_price)
     {
-        Cart::add($product_id,$product_name,1,$product_price)->associate('App\Models\Product');
+        Cart::instance('cart')->add($product_id,$product_name,1,$product_price)->associate('App\Models\Product');
         session()->flash('success_message',' Item added in Cart');
         return redirect()->route('product.cart');
+    }
+
+    public function addToWishlist($product_id,$product_name,$product_price)
+    {
+        Cart::instance('wishlist')->add($product_id,$product_name,1,$product_price)->associate('App\Models\Product');
     }
 
     use WithPagination;
@@ -36,15 +49,15 @@ class CheckoutComponent extends Component
         $category_name = $category->name;
         if($this->sorting=='date')
         {
-            $subcategories = Subcategory::where('category_id',$category_id)->orderBy('created_at','DESC')->paginate($this->pagesize);
+            $subcategories = Subcategory::where('category_id',$category_id)->whereBetween('regular_price',[$this->min_price,$this->max_price])->orderBy('created_at','DESC')->paginate($this->pagesize);
         }
         elseif($this->sorting=="price")
         {
-            $subcategories = Subcategory::where('category_id',$category_id)->orderBy('regular_price','ASC')->paginate($this->pagesize);
+            $subcategories = Subcategory::where('category_id',$category_id)->whereBetween('regular_price',[$this->min_price,$this->max_price])->orderBy('regular_price','ASC')->paginate($this->pagesize);
         }
         elseif($this->sorting=="price-desc")
         {
-            $subcategories = Subcategory::where('category_id',$category_id)->orderBy('regular_price','DESC')->paginate($this->pagesize);
+            $subcategories = Subcategory::where('category_id',$category_id)->whereBetween('regular_price',[$this->min_price,$this->max_price])->orderBy('regular_price','DESC')->paginate($this->pagesize);
         }
         else{
             $subcategories = Subcategory::where('category_id',$category_id)->paginate($this->pagesize);

@@ -32,8 +32,10 @@ use App\Http\Livewire\Admin\AdminHomeCategoryComponent;
 use App\Http\Livewire\Admin\AdminHomeSliderComponent;
 use App\Http\Livewire\Admin\AdminProductComponent;
 use App\Http\Livewire\CareerComponent;
+use App\Http\Livewire\OtpComponent;
 use App\Http\Livewire\PrivacyComponent;
 use App\Http\Livewire\TermsComponent;
+use App\Http\Livewire\WishlistComponent;
 use Illuminate\Foundation\Console\PolicyMakeCommand;
 
 /*
@@ -64,6 +66,8 @@ Route::get('/product-category/{category_slug}',CategoryMenuComponent::class)->na
 
 Route::get('/product-subcategory/{subcategory_slug}',SubcategoryComponent::class)->name('product.subcategory');
 
+Route::get('/favourite',WishlistComponent::class)->name('product.wishlist');
+
 Route::get('/featuredProduct',FeaturedproductComponent::class);
 
 Route::get('/privacy',PrivacyComponent::class);
@@ -90,6 +94,11 @@ Route::post('/storeSub', [ImageController::class, 'storeSub']);
 
 Route::get('newsletter',[NewsletterController::class, 'create']);
 Route::post('newsletter',[NewsletterController::class, 'store']);
+
+Route::get('/test/purchase', 'OtpController@confirmationPage');
+Route::post('/test/otp-request', 'OtpController@requestForOtp')->name('requestForOtp');
+Route::post('/test/otp-validate', 'OtpController@validateOtp')->name('validateOtp');
+Route::post('/test/otp-resend', 'OtpController@resendOtp')->name('resendOtp');
 
 
 //Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

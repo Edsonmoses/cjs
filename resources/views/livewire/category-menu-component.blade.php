@@ -14,7 +14,6 @@
                     <img class="img-fluid" src="{{ asset('assets/img/subcategory') }}/{{ $product->image }}" alt="{{ $product->name }}" />
                     <div class="portfolio-box-caption">
                         <div class="project-name text-center">{{$product->name}}</div>
-                       {{-- <ahref="#"class="btnadd-to-cart"wire:click.prevent="store($product->id }},'{{ $product->name }}',{{ $product->regular_price}})">Add To Cart</a>--}}
                     </div>
                 </a>
             </div>
