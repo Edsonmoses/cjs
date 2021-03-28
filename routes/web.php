@@ -95,10 +95,6 @@ Route::post('/storeSub', [ImageController::class, 'storeSub']);
 Route::get('newsletter',[NewsletterController::class, 'create']);
 Route::post('newsletter',[NewsletterController::class, 'store']);
 
-Route::get('/test/purchase', 'OtpController@confirmationPage');
-Route::post('/test/otp-request', 'OtpController@requestForOtp')->name('requestForOtp');
-Route::post('/test/otp-validate', 'OtpController@validateOtp')->name('validateOtp');
-Route::post('/test/otp-resend', 'OtpController@resendOtp')->name('resendOtp');
 
 
 //Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
