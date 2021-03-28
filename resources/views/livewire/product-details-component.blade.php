@@ -96,6 +96,7 @@
                     </div>
                   <h4 class="text-blue mt-0 text-uppercase" style="font-weight: bold; font-size: 18px;">Additional Items</h4>
                     <table>
+                        @if (!empty($product->addItem))
                         <tr>
                             <td>
                                 <label class="container-inner">
@@ -108,6 +109,7 @@
                             </td>
                             <td>+ 150</td>
                         </tr>
+                        @endif
                     </table>
                     <div class="mt-5 mb-4">
                     <a href="#" class="btn add-to-cart btn-green" wire:click.prevent="store({{ $product->id}},'{{ $product->name }}',{{ $product->regular_price}})">ADD TO ORDER</a>
