@@ -55,6 +55,9 @@
                                             <li class="nav-item">
                                                 <a title="Manage Home Categories" href="{{route('admin.homecategories')}}" class="nav-link js-scroll-trigger">Manage Home Categories</a>
                                             </li>
+                                            <li class="nav-item">
+                                                <a title="All Coupons" href="{{route('admin.coupons')}}" class="nav-link js-scroll-trigger">All Coupons</a>
+                                            </li>
                                             <li class="menu-item">
                                                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"  class="nav-link js-scroll-trigger">Login</a>
                                             </li>

@@ -6,6 +6,7 @@ use App\Models\Product;
 use Livewire\Component;
 use Cart;
 use App\Models\Subcategory;
+use Illuminate\Http\Request;
 
 class ProductDetailsComponent extends Component
 {
@@ -17,9 +18,13 @@ class ProductDetailsComponent extends Component
     }
     public function store($product_id,$product_name,$product_price)
     {
+
         Cart::instance('cart')->add($product_id,$product_name,1,$product_price)->associate('App\Models\Product');
+        $this->emitTo('cart-count-component','refreshComponent');
         session()->flash('success_message',' Item added in Cart');
         return redirect()->route('product.cart');
+
+
     }
 
     public function addToWishlist($product_id,$product_name,$product_price)

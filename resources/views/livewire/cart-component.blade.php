@@ -34,7 +34,7 @@
                                 <div class="order-total-count">
                                     <div class="product-code" id="itemCost">{{ $item->model->regular_price}}</div>
                                     <div class="d-flex flex-align-end flex-space-between">
-                                        <a href="https://cafejavas.co.ug/user/cartItemDetails/NDI4OTE2" class="view-det">VIEW DETAILS</a>
+                                        <a href="{{ route('product.details',['slug'=>$item->model->slug]) }}" class="view-det">VIEW DETAILS</a>
                                         <div class="d-flex">
                                             <div class="value-button decrease val" wire:click.prevent="decreaseQuantity('{{ $item->rowId }}')">-</div>
                                             <input type="number" name="quantity" disabled="" class="number" value="{{ $item->qty }}" data-max="120" pattern="[0-9]*">
@@ -91,8 +91,8 @@
             <div class="s8 col">
                 <div class="btn-inline">
                   <a href="/menu" class="btn btn-blue mb-20">ADD MORE ITEMS</a>
-                  <a href="/login" class="btn btn-green mb-20">SIGNIN &amp; CHECKOUT</a>
-                  <a href="/login" class="btn btn-pink mb-20"  wire:click.prevent="destroyAll()">CLEAR SHOPPING CART</a>
+                     <a href="/checkout" class="btn btn-green mb-20">SIGNIN &amp; CHECKOUT</a>
+                  <a href="#" class="btn btn-pink mb-20"  wire:click.prevent="destroyAll()">CLEAR SHOPPING CART</a>
                 </div>
             </div>
         </div>

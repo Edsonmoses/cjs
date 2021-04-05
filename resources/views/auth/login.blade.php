@@ -110,7 +110,7 @@
                             <a class="text-gray" href="#" title="FORGOT PASSWORD">FORGOT PASSWORD</a>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-green">LOGIN</button>
+                            <button type="submit" class="btn btn-green">SIGN UP</button>
                         </div>
                     </form>
                 </div>

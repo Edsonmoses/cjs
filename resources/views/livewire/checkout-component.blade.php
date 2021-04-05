@@ -7,17 +7,32 @@
             </div>
         </div>
         <div class="row">
-            @foreach($subcategories as $category)
-            <div class="col-lg-3 col-sm-6 pt-3 submenu-box">
-                <a class="portfolio-box" href="{{ route('product.details',['subcategory_slug'=>$category->slug]) }}">
-                    <img class="img-fluid" src="{{ asset('assets/img/products') }}/{{ $category->image }}" alt="{{ $category->name }}" />
-                    <div class="portfolio-box-caption">
-                        <div class="project-name">{{$category->name}}</div>
-                        <a href="#" class="btn add-to-cart" wire:click.prevent="store({{ $category->id}},'{{ $category->name }}')">Add To Cart</a>
-                    </div>
-                </a>
+            <div class="col-lg-12 col-sm-12 pt-3">
+                <table class="table">
+                    <tbody class="fs-18">
+                        <tr>
+                            <td>SUB TOTAL : </td>
+                            <td id="subTotal"><strong>{{ Cart::subtotal() }}</strong></td>
+                        </tr>
+        <!--                            <tr>
+                            <td>DELIVERY FEE : </td>
+                            <td><strong>0</strong></td>
+                        </tr>-->
+
+                    <tr><td id="promo_amount" style="display: none;">0</td>
+                    <td id="promo_id" style="display: none;">0</td>
+                    </tr><tr>
+                        <td>VAT 16% : </td>
+                        <td id="vat_amount"><strong>{{ Cart::tax() }}</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong class="text-light-blue">TOTAL : </strong></td>
+                        <td id="totalPrice"><strong class="text-light-blue">{{ Cart::total() }}</strong></td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
-            @endforeach
+
             <div class="col-lg-12 col-sm-12 pt-3 wrap-pagination-info">
                     {{-- - --}}
             </div>
