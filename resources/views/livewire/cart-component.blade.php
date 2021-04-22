@@ -5,6 +5,7 @@
                 <h2 class="text-blue mt-4">MY CART</h2>
             </div>
         </div>
+        @if(Cart::instance('cart')->count() > 0)
         <div class="row">
             @if(Session::has('success_message'))
                 <div class="col-lg-12 col-sm-12 alert alert-success">
@@ -60,24 +61,70 @@
             <div class="table-responsive">
                 <table class="table">
                     <tbody class="fs-18">
+
+                        @if(Session::has('coupon'))
+                        <tr>
+                            <td>Discount ({{ Session::get('coupon') ['code']}}) <a href="#" wire:click.prevent="removeCoupon"><i class="fa fa-times text-danger"></i></a></td>
+                            <td id="promo_amount"><strong>{{ number_format($discount) }}</strong></td>
+                        </tr>
+                        <tr>
+                            <td>VAT ({{ config('cart.tax') }}%)</td>
+                            <td id="vat_amount"><strong>{{ number_format($taxAfterDiscount)}}</strong></td>
+                        </tr>
+                        <tr>
+                            <td>SUB TOTAL WITH DISCOUNT : </td>
+                            <td id="subTotal"><strong>{{ number_format($subtotalAfterDiscount) }}</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong class="text-light-blue">TOTAL : </strong></td>
+                            <td id="totalPrice"><strong class="text-light-blue">{{ number_format($totalAfterDiscount) }}</strong></td>
+                        </tr>
+
+                        @else
                         <tr>
                             <td>SUB TOTAL : </td>
                             <td id="subTotal"><strong>{{ Cart::subtotal() }}</strong></td>
                         </tr>
-        <!--                            <tr>
+        <!--              <tr>
                             <td>DELIVERY FEE : </td>
                             <td><strong>0</strong></td>
                         </tr>-->
-
-                    <tr><td id="promo_amount" style="display: none;">0</td>
-                    <td id="promo_id" style="display: none;">0</td>
-                    </tr><tr>
+                    </tr>
+                    <tr>
                         <td>VAT 16% : </td>
                         <td id="vat_amount"><strong>{{ Cart::tax() }}</strong></td>
                     </tr>
                     <tr>
                         <td><strong class="text-light-blue">TOTAL : </strong></td>
                         <td id="totalPrice"><strong class="text-light-blue">{{ Cart::total() }}</strong></td>
+                    </tr>
+                    @endif
+                    <tr>
+                        @if(!Session::has('coupon'))
+                            <td class="coupon-wrapper">
+                                <label class="container-inner">
+                                    <input type="checkbox" name="have-code" id="have-code" value="1" wire:model="haveCouponCode">
+                                    <span class="have-coupon">I have a coupon code</span>
+                                    <span class="checkmark"></span>
+                                </label>
+                                @if($haveCouponCode == 1)
+                                <div class="coupon-item">
+                                    <form wire:submit.prevent="applyCouponCode">
+                                        <h4 class="title-box">Coupon Code</h4>
+                                        @if(Session::has('coupon_message'))
+                                            <div class="alert alert-danger" role="danger">{{ Session::get('coupon_message') }}</div>
+                                        @endif
+                                        <div class="col-lg-12">
+                                            <label>Enter your coupon code:</label>
+                                            <input type="text" class="form-control" name="coupon-code" wire:model="couponCode"/><br/>
+                                            <button type="submit" class="btn btn-small btn-green">Apply</button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                                @endif
+                            @endif
+                        </td>
                     </tr>
                     </tbody>
                 </table>
@@ -91,11 +138,17 @@
             <div class="s8 col">
                 <div class="btn-inline">
                   <a href="/menu" class="btn btn-blue mb-20">ADD MORE ITEMS</a>
-                     <a href="/checkout" class="btn btn-green mb-20">SIGNIN &amp; CHECKOUT</a>
+                  <a href="#" class="btn btn-green mb-20" wire:click.prevent="checkout">SIGNIN &amp; CHECKOUT</a>
                   <a href="#" class="btn btn-pink mb-20"  wire:click.prevent="destroyAll()">CLEAR SHOPPING CART</a>
                 </div>
             </div>
         </div>
-
+        @else
+          <div class="text-center" style="padding: 30px 0;">
+              <h1>Your cart is empty!</h1>
+              <p>Add items to it now</p>
+              <a href="/menu" class="btn btn-blue mb-20">Add Now</a>
+          </div>
+        @endif
     </div>
 </section>

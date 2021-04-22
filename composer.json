@@ -21,7 +21,8 @@
         "laravel/tinker": "^2.5",
         "livewire/livewire": "^2.0",
         "spatie/laravel-newsletter": "^4.9",
-        "tabuna/breadcrumbs": "^2.3"
+        "tabuna/breadcrumbs": "^2.3",
+        "cartalyst/stripe-laravel": "^13.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

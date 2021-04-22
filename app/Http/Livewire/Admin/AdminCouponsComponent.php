@@ -14,7 +14,6 @@ class AdminCouponsComponent extends Component
         session()->flash('message','Coupon has been deleted successfully!');
     }
 
-
     public function render()
     {
         $coupons = Coupon::all();

@@ -16,9 +16,6 @@ use App\Http\Livewire\FeaturedproductComponent;
 use App\Http\Livewire\ProductDetailsComponent;
 use App\Http\Livewire\SubcategoryComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
-use App\Models\Category;
-use App\Models\Product;
-use App\Models\Subcategory;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Livewire\Admin\AdminAddCategoryComponent;
@@ -35,9 +32,9 @@ use App\Http\Livewire\Admin\AdminHomeCategoryComponent;
 use App\Http\Livewire\Admin\AdminHomeSliderComponent;
 use App\Http\Livewire\Admin\AdminProductComponent;
 use App\Http\Livewire\CareerComponent;
-use App\Http\Livewire\OtpComponent;
 use App\Http\Livewire\PrivacyComponent;
 use App\Http\Livewire\TermsComponent;
+use App\Http\Livewire\ThankyouComponent;
 use App\Http\Livewire\WishlistComponent;
 use Illuminate\Foundation\Console\PolicyMakeCommand;
 
@@ -61,7 +58,7 @@ Route::get('/menu',MenuComponent::class);
 
 Route::get('/cart',CartComponent::class)->name('product.cart');
 
-Route::get('/checkout',CheckoutComponent::class);
+Route::get('/checkout',CheckoutComponent::class)->name('checkout');
 
 Route::get('/product/{slug}',ProductDetailsComponent::class)->name('product.details');
 
@@ -70,6 +67,8 @@ Route::get('/product-category/{category_slug}',CategoryMenuComponent::class)->na
 Route::get('/product-subcategory/{subcategory_slug}',SubcategoryComponent::class)->name('product.subcategory');
 
 Route::get('/favourite',WishlistComponent::class)->name('product.wishlist');
+
+Route::get('/thank-you',ThankyouComponent::class)->name('thankyou');
 
 Route::get('/featuredProduct',FeaturedproductComponent::class);
 
@@ -80,7 +79,7 @@ Route::get('/terms',TermsComponent::class);
 Route::get('/deal',DealComponent::class);
 
 Route::get('/career', CareerComponent::class);
-
+//controllers
 Route::resource('products', ProductController::class);
 
 Route::resource('category', CategoryController::class);
@@ -130,6 +129,6 @@ Route::middleware(['auth:sanctum', 'verified','authadmin'])->group(function(){
     //For Coupons
     Route::get('/admin/coupons',AdminCouponsComponent::class)->name('admin.coupons');
     Route::get('/admin/coupon/add',AdminAddCouponComponent::class)->name('admin.addcoupon');
-    Route::get('/admin/coupon/edit/{coupon_id}',AdminEditCouponComponent::class)->name('admin.editcoupon');
+    Route::get('admin/coupon/edit/{coupon_id}',AdminEditCouponComponent::class)->name('admin.editcoupon');
 
 });

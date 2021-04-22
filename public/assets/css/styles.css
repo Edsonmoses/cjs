@@ -11309,3 +11309,34 @@ input.number {
 }
 .mt-20 {
     margin-top: 20px !important;
+}
+.fill-wife .checkmark{
+    margin: 0 auto !important;
+    top: 9px !important;
+    left: 15px !important;
+}
+.fill-wife .checkmark-dec{
+    padding-left: 5px !important;
+    font-size: 18px;
+}
+.coupon-wrapper #have-code{
+    padding: 15px 0 0 0 !important;
+}
+.coupon-wrapper .have-coupon{
+    padding: 15px 0 0 0 !important;
+    font-size: 16px;
+}
+.coupon-wrapper .checkmark{
+    margin: 7px 0 0 0 !important;
+}
+.coupon-item{
+    padding: 15px 0 0 0;
+}
+.coupon-item .title-box{
+    color: #424c58;
+    font-size: 16px;
+}
+.coupon-item label{
+    color: #424c58;
+    font-size: 12px;
+}
