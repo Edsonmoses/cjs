@@ -11340,3 +11340,6 @@ input.number {
     color: #424c58;
     font-size: 12px;
 }
+#hide {
+  display: none;
+}

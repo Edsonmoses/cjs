@@ -34,7 +34,7 @@
                         <div class="form-group">
                             <label for="email" class="col-md-4 control-label">Email Address</label>
                             <div class="col-md-12">
-                                <input type="email" name="email" class="form-control input-md" placeholder="Email Address"/>
+                                <input type="email" name="email" class="form-control input-md" placeholder="Email Address" wire:model="email"/>
                                 @error('email')<p class="text-danger">{{ $message }}</p>@enderror
                             </div>
                         </div>
@@ -43,7 +43,7 @@
                         <div class="form-group">
                             <label for="mobile" class="col-md-4 control-label">Phone Number</label>
                             <div class="col-md-12">
-                                <input type="number" name="mobile" class="form-control input-md" value="" placeholder="Phone Number"/>
+                                <input type="number" name="mobile" class="form-control input-md" value="" placeholder="Phone Number" wire:model="mobile"/>
                                 @error('mobile')<p class="text-danger">{{ $message }}</p>@enderror
                             </div>
                         </div>
@@ -54,7 +54,7 @@
                         <div class="form-group">
                             <label for="add" class="col-md-4 control-label">Line1</label>
                             <div class="col-md-12">
-                                <input type="text" name="add" class="form-control input-md" value="" placeholder="Home Number"/>
+                                <input type="text" name="add" class="form-control input-md" value="" placeholder="Home Number" wire:model="line1"/>
                                 @error('line1')<p class="text-danger">{{ $message }}</p>@enderror
                             </div>
                         </div>
@@ -63,7 +63,7 @@
                         <div class="form-group">
                             <label for="add" class="col-md-4 control-label">Line2</label>
                             <div class="col-md-12">
-                                <input type="text" name="add" class="form-control input-md" value="" placeholder="Home Number"/>
+                                <input type="text" name="add" class="form-control input-md" value="" placeholder="Home Number" wire:model="line2"/>
                             </div>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
                         <div class="form-group">
                             <label for="country" class="col-md-4 control-label">Country</label>
                             <div class="col-md-12">
-                                <input type="text" name="country" class="form-control input-md" value="" placeholder="Country"/>
+                                <input type="text" name="country" class="form-control input-md" value="" placeholder="Country" wire:model="country"/>
                                 @error('country')<p class="text-danger">{{ $message }}</p>@enderror
                             </div>
                         </div>
@@ -83,7 +83,7 @@
                         <div class="form-group">
                             <label for="zipcode" class="col-md-4 control-label">Postcode / ZIP</label>
                             <div class="col-md-12">
-                                <input type="number" name="zipcode" class="form-control input-md" value="" placeholder="Postal code"/>
+                                <input type="number" name="zipcode" class="form-control input-md" value="" placeholder="Postal code" wire:model="zipcode"/>
                                 @error('zipcode')<p class="text-danger">{{ $message }}</p>@enderror
                             </div>
                         </div>
@@ -94,7 +94,7 @@
                         <div class="form-group">
                             <label for="province" class="col-md-4 control-label">Province</label>
                             <div class="col-md-12">
-                                <input type="text" name="province" class="form-control input-md" value="" placeholder="Province"/>
+                                <input type="text" name="province" class="form-control input-md" value="" placeholder="Province" wire:model="province"/>
                                 @error('province')<p class="text-danger">{{ $message }}</p>@enderror
                             </div>
                         </div>
@@ -103,7 +103,7 @@
                         <div class="form-group">
                             <label for="city" class="col-md-4 control-label">Town / City</label>
                             <div class="col-md-12">
-                                <input type="text" name="city" class="form-control input-md" value="" placeholder="City"/>
+                                <input type="text" name="city" class="form-control input-md" value="" placeholder="City" wire:model="city"/>
                                 @error('city')<p class="text-danger">{{ $message }}</p>@enderror
                             </div>
                         </div>
@@ -229,8 +229,37 @@
 
     <div class="payment-method card-body">
         <h4 class="title-box">Payment Method</h4>
-        <p class="summary-info"><span class="title">Check / Money Order</span></p>
-        <p class="summary-info"><span class="title">Credit Cart (saved)</span></p>
+        @if($paymentmode == 'card')
+        <div class="wrap-address-billing">
+            @if(Session::has('stripe_error'))
+                <div class="alert alert-danger" role="alert">{{ Session::get('stripe_error') }}</div>
+            @endif
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="card-no" class="col-md-4 control-label">Card Number:</label>
+                    <input type="text" name="card-no" class="form-control input-md" value="" placeholder="Card Number" wire:model="card_no"/>
+                    @error('card_no') <span class="text-danger">{{ $message }}</span>@enderror
+                </div>
+                <div class="col-md-6">
+                    <label for="exp-month" class="col-md-4 control-label">Expiry Month:</label>
+                    <input type="text" name="exp-month" class="form-control input-md" value="" placeholder="MM" wire:model="exp_month"/>
+                    @error('exp_month') <span class="text-danger">{{ $message }}</span>@enderror
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="exp-year" class="col-md-4 control-label">Expiry Year:</label>
+                    <input type="text" name="exp-year" class="form-control input-md" value="" placeholder="YYY" wire:model="exp_year"/>
+                    @error('exp_year') <span class="text-danger">{{ $message }}</span>@enderror
+                </div>
+                <div class="col-md-6">
+                    <label for="cvc" class="col-md-4 control-label">CVC:</label>
+                    <input type="password" name="cvc" class="form-control input-md" value="" placeholder="CVC" wire:model="cvc"/>
+                    @error('cvc') <span class="text-danger">{{ $message }}</span>@enderror
+                </div>
+            </div>
+        </div>
+        @endif
         <div class="choose-payment-method">
             <table>
                 <tr>
@@ -238,25 +267,31 @@
                         <label class="payment-method control-label">
                             <input name="payment-method" id="payment-method-cod" value="cod" type="radio" wire:model="paymentmode"/>
                             <span>Cash On Delivery</span><br/>
+                            @if($paymentmode == 'cod')
                             <span>Order Now Pay on Delivery</span>
+                            @endif
                         </label>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <label class="payment-method control-label">
-                            <input name="payment-method" id="payment-method-card"value="card" type="radio" wire:model="paymentmode"/>
+                            <input name="payment-method" id="payment-method-card" value="card" type="radio" wire:model="paymentmode"/>
                             <span>Debit / Credit Card</span><br/>
+                            @if($paymentmode == 'card')
                             <span>You can pay with your credit card</span>
+                            @endif
                         </label>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <label class="payment-method control-label">
-                            <input name="payment-method" id="payment-method-card"value="card" type="radio" wire:model="paymentmode"/>
+                            <input name="payment-method" id="payment-method-paypals" value="paypal" type="radio" wire:model="paymentmode"/>
                             <span>PayPal</span><br/>
+                            @if($paymentmode == 'paypal')
                             <span>You can pay with your credit card if don't have a paypal account</span>
+                            @endif
                         </label>
                     </td>
                 </tr>
@@ -272,3 +307,4 @@
    </form>
   </div>
 </div>
+

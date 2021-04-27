@@ -9,13 +9,14 @@ class Coupon extends Model
 {
     use HasFactory;
 
-    protected $table = "coupons";
+    //protected $table = "coupons";
 
     protected $fillable = [
         'code',
         'type',
         'value',
         'cart_value',
+        'expiry_date',
     ];
 
 }

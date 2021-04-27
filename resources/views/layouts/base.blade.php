@@ -59,6 +59,9 @@
                                             <li class="nav-item">
                                                 <a title="All Coupons" href="{{route('admin.coupons')}}" class="nav-link js-scroll-trigger">All Coupons</a>
                                             </li>
+                                            <li class="nav-item">
+                                                <a title="All Orders" href="{{route('admin.orders')}}" class="nav-link js-scroll-trigger">All Orders</a>
+                                            </li>
                                             <li class="menu-item">
                                                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"  class="nav-link js-scroll-trigger">Login</a>
                                             </li>
@@ -85,7 +88,6 @@
                                 @endif
                                 @else
                                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('login') }}">Login</a></li>
-                                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('register') }}">Register</a></li>
                                 @endif
                         @endif
                         @livewire('wishlist-count-component')
